@@ -1,0 +1,66 @@
+
+```{=html}
+<style>
+body{text-align: justify}
+</style>
+```
+
+
+# Análise Multivariada
+## Introdução
+
+O desenvolvimento tecnológico oriundo das descobertas científicas tem alavancado o próprio desenvolvimento científico, ampliando em várias ordens de grandeza à capacidade de obter informações de acontecimentos e fenômenos que estão sendo analisados. Uma grande massa de informação deve ser processada antes de ser transformada em conhecimento. Portanto, cada vez mais se está necessitando de ferramentas estatísticas que apresentem uma visão mais global do fenômeno que aquela possível numa abordagem univariada. 
+
+A denominação “Análise Multivariada” corresponde a um grande número de método e técnicas que utilizam simultaneamente todas as variáveis na interpretação teórica do conjunto de dados obtidos. A principal vantagem das técnicas multivariadas é sua habilidade em acomodar múltiplas variáveis em uma tentativa de compreender as relações complexas não possíveis com métodos univariados e bivariados. Aumentar o número de variáveis também aumenta a possibilidade de que nem todas as variáveis são não-correlacionadas e representativas de conceitos distintos. Em vez disso, grupos de variáveis podem ser inter-relacionados a ponto de todos serem representativos de um conceito mais geral. Isso pode ser por planejamento, como a tentativa de medir as muitas facetas da personalidade ou de uma imagem, ou pode surgir simplesmente da adição de novas variáveis.
+
+Em qualquer caso, o pesquisador deve saber como as variáveis estão inter-relacionadas para melhorar interpretar os resultados. Finalmente, se o número de variáveis é muito grande ou se há uma necessidade de representar melhor um número menor de conceitos, em vez das muitas facetas, a Análise Multivariada pode auxiliar na seleção de um subconjunto representativo de variáveis ou mesmo na criação de novas como substitutas das variáveis originais, e ainda mantendo seu caráter original. 
+
+
+##	Principais Técnicas Multivariadas
+
+A análise multivariada é um conjunto de técnicas para analise de dados que está sempre em expansão. Dentre as técnicas mais conhecidas e usadas na literatura, estão: Análise de Componentes Principais, Análise Fatorial, Regressão Linear Múltipla, Análise Discriminante, Análise Multivariada de Variância (MANOVA), Análise Multivariada de Covariância (MANCOVA), Análise Conjunta, Análise de Correlação Canônica, Análise de Agrupamento, Análise de Correspondência, Regressão Logística, Escalonamento Multidimensional e Equações Estruturais, Rede Neural e Lógica Fuzzy.
+
+## Princípio da Causalidade
+
+
+Aranha e Zambaldi (2008), o conceito de causalidade está ligado ao motivo pelas quais as variáveis se associam linearmente, ao que está por trás da associação. Uma possível explicação para correlações estatisticamente significantes é de que uma variável cause a outra. Ao acreditar que uma variável computada seja a causa de ocorrência da outra e que há entre elas uma proporcionalidade, ele espera encontrar uma relação linear positiva. No entanto, a postulação de relações causais diretas entre variáveis observadas não é a única forma de explicar a existência de correlações relevantes e estatisticamente significantes. 
+ 
+Assim, é coerente esperar que variações nos fatores causem alterações em seus respectivos itens. Isto é, faz sentido que os itens referentes a um mesmo fator de avaliação estejam correlacionados, não porque um cause o outro, mas porque todos são causados por um mesmo fator comum.
+
+Essa explicação demonstra que, embora o coeficiente de correlação possa apontar associações positivas, negativas ou independência linear entre variáveis, ele não esclarece por si só a causa dessas associações. Para compreendê-las, são necessárias reflexão teórica e aplicação de testes empíricos para as hipóteses formuladas a partir dessa reflexão.
+
+Para representar as relações de associações e causalidade entre variáveis e seus efeitos nas correlações entre elas, utiliza-se uma notação gráfica tradicional de uma área da estatística chamada Path Analysis, onde significa Análise de Caminhos. Seu principal beneficio em nosso caso, é o uso de diagramas para representar graficamente modelos de análise fatorial, pois sua notação permite visualizar todos os caminhos percorridos pelas relações, causais ou não, entre as variáveis de um estudo. De acordo com essa notação gráfica, variáveis observadas (itens) são representadas por um quadrado, enquanto que as variáveis não - observáveis (latentes ou fatores) são representadas por um circulo. As relações de causas entre as variáveis são determinadas por uma seta em linha reta, da causa para conseqüência (ARANHA & ZAMBALDI, 2008).
+
+
+## Classificação das Técnicas Multivariadas
+
+Quando se considera a aplicação de técnicas estatísticas multivariadas, a primeira questão é: as variáveis podem ser divididas em uma classificação de dependentes e independentes.
+
+
+### Técnicas de Dependência 
+
+Uma técnica de dependência pode ser definida como aquela na qual uma variável ou conjunto de variáveis é identificado (a) como a variável dependente a ser predita ou explicada por outras variáveis conhecidas como variáveis independentes. Um exemplo de técnica de dependência é a Análise de Regressão Múltipla. 
+
+
+### Técnicas de Independência
+
+A Análise Fatorial é uma técnica de interdependência nas quais todas as variáveis são simultaneamente consideradas, cada relacionada com todas as outras, empregando ainda o conceito da variável estatística, a composição linear de variáveis. Na AF, as variáveis estatísticas (fatores) são formadas para maximizar seu poder de explicação do conjunto inteiro de variáveis, e não para prever uma variável (eis) dependente(s). Se tiver que esboçar uma analogia com as técnicas de dependência, seriam no sentido de que cada variável observada (original) é uma variável dependente que é uma função de algum conjunto latente de fatores (dimensões) feitos eles próprios a partir de todas as outras variáveis. Logo cada variável é prevista por todas as outras.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

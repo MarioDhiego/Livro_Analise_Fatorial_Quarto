@@ -1,0 +1,52 @@
+# Preâmbulo Geral
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Fundamentos de Análise Fatorial"
+  page-footer:
+    left: |
+      Was Written by (VALENTE e PUGA - 2024).
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  subtitle: "**Na Gestão Pública**"
+  author: 
+  - name: "**Mário Diego Rocha Valente**"
+    orcid: 0000-0001-7262-3336
+    #corresponding: true
+    #email: diego.vatente@gmail.com
+  - name: "**Wilker Marlon Maciel Puga**"
+    #orcid: 0000-0003-1725-3664
+  date: "02/04/2024"
+  search: true
+  repo-url: https://github.com/MarioDhiego/Book_Estatistica_Quarto
+  repo-actions: [edit, issue]
+  downloads: [pdf, docx]
+  sharing: [twitter, facebook]
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+comments:
+  hypothesis: true
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: 
+      light: [pulse,custom.scss]
+      dark:  [cyborg,custom.scss]
+    toc-title: Sumário
+    toc-location: right
+  pdf:
+    documentclass: scrreport
+  epub:
+    cover-image: cover.png
+abstract: "O Livro Fundamamentos de Análise Fatorial......"
+
+
+

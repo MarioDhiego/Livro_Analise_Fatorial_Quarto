@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Fundamentos de Análise Fatorial - 2&nbsp; Análise Fatorial (AF)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./summary.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Análise Fatorial (AF)</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Fundamentos de Análise Fatorial</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/MarioDhiego/Book_Estatistica_Quarto" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Fundamentos-de-Análise-Fatorial.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Fundamentos-de-Análise-Fatorial.docx">
+              <i class="bi bi-bi-file-word pe-1"></i>
+            Download Docx
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Análise Multivariada</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Análise Fatorial (AF)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sumário</h2>
+   
+  <ul>
+  <li><a href="#aspectos-gerais" id="toc-aspectos-gerais" class="nav-link active" data-scroll-target="#aspectos-gerais"><span class="header-section-number">2.1</span> Aspectos Gerais</a></li>
+  <li><a href="#tipos-de-af" id="toc-tipos-de-af" class="nav-link" data-scroll-target="#tipos-de-af"><span class="header-section-number">2.2</span> Tipos de AF</a>
+  <ul class="collapse">
+  <li><a href="#análise-fatorial-exploratória-afe" id="toc-análise-fatorial-exploratória-afe" class="nav-link" data-scroll-target="#análise-fatorial-exploratória-afe"><span class="header-section-number">2.2.1</span> Análise Fatorial Exploratória (AFE)</a></li>
+  <li><a href="#análise-fatorial-confirmatória-afc" id="toc-análise-fatorial-confirmatória-afc" class="nav-link" data-scroll-target="#análise-fatorial-confirmatória-afc"><span class="header-section-number">2.2.2</span> Análise Fatorial Confirmatória (AFC)</a></li>
+  </ul></li>
+  <li><a href="#cargas-fatoriais" id="toc-cargas-fatoriais" class="nav-link" data-scroll-target="#cargas-fatoriais"><span class="header-section-number">2.3</span> Cargas Fatoriais</a></li>
+  <li><a href="#histórico-da-análise-fatorial" id="toc-histórico-da-análise-fatorial" class="nav-link" data-scroll-target="#histórico-da-análise-fatorial"><span class="header-section-number">2.4</span> Histórico da Análise Fatorial</a></li>
+  <li><a href="#definições-clássicas" id="toc-definições-clássicas" class="nav-link" data-scroll-target="#definições-clássicas"><span class="header-section-number">2.5</span> Definições Clássicas</a></li>
+  <li><a href="#modelo-estatístico-da-análise-fatorial" id="toc-modelo-estatístico-da-análise-fatorial" class="nav-link" data-scroll-target="#modelo-estatístico-da-análise-fatorial"><span class="header-section-number">2.6</span> Modelo Estatístico da Análise Fatorial</a></li>
+  <li><a href="#principais-etapas-para-aplicação-da-análise-fatorial" id="toc-principais-etapas-para-aplicação-da-análise-fatorial" class="nav-link" data-scroll-target="#principais-etapas-para-aplicação-da-análise-fatorial"><span class="header-section-number">2.7</span> Principais Etapas para Aplicação da Análise Fatorial</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MarioDhiego/Book_Estatistica_Quarto/edit/main/summary.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/MarioDhiego/Book_Estatistica_Quarto/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Análise Fatorial (AF)</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    O Livro Fundamamentos de Análise Fatorial……
+  </div>
+</div>
+
+</header>
+
+<style>
+body{text-align: justify}
+</style>
+<section id="aspectos-gerais" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="aspectos-gerais"><span class="header-section-number">2.1</span> Aspectos Gerais</h2>
+<p>Certos conceitos das ciências sociais e comportamentais não são bem definidos e existem muitas discussões sobre o real significado de termos como classe social, opinião pública, comportamento de risco ou personalidade extrovertida. Tais conceitos são freqüentemente chamados de variáveis latentes, desde que não são diretamente observáveis mesmo na população. Trata-se de construtos inventados pelos cientistas com o propósito de entender alguma área de interesse na pesquisa sendo realizada e para a qual não existe método operacional para fazer uma medida de forma direta.</p>
+<p>Embora as variáveis latentes não possam ser observadas diretamente, alguns de seus efeitos aparecerão nas variáveis manifestas, ou seja, aquelas que podem ser verificadas. Fica claro que medir diretamente um conceito como preconceito racial não é possível; no entanto, pode-se, por exemplo, observar quando uma pessoa aprova, ou não, alguma legislação do governo a respeito deste assunto. Pode-se, também, saber de que raça são os amigos desta pessoa e assim assumir que tais observações são de algum modo, indicadores de uma variável mais fundamental, o preconceito racial (Everitt, 1984). O método mais conhecido para investigar a dependência de um conjunto de variáveis manifestas em relação a um número menor de variáveis latentes é a chamada Análise de Fatores.</p>
+<p>A análise de fatores é uma das técnicas mais usuais do que se convencionou chamar de análise multivariada. Quando empregamos este tipo de análise estamos frequentemente interessados no comportamento de uma variável ou grupos de variáveis em covariação com outras (GREEN, 1976).<br>
+Em realidade a análise fatorial não se refere a uma única técnica estatística, mas a uma variedade de técnicas relacionadas para tornar os dados observados mais facilmente (e diretamente) interpretados. Isto é feito analisando-se os inter-relacionamentos entre as variáveis de tal modo que estas possam ser descritas convenientemente por um grupo de categorias básicas, em número menor que as variáveis originais, chamado fatores. Assim, o objetivo da análise fatorial é a parcimônia, procurando definir o relacionamento entre as variáveis de modo simples e usando um número de fatores menor que o número original de variáveis.</p>
+<p>Mais precisamente, um fator é um construto, uma entidade hipotética, uma variável não observada, que se supõe estarem subjacente a testes, escalas, itens e, de fato, medidas de qualquer espécie. Como construtos, os fatores apenas possuem realidade no fato de explicarem a variância de variáveis observadas, tal como se revelam pelas correlações entre as variáveis sendo analisadas, ou seja, a única realidade científica que os fatores possuem vem das correlações entre testes ou variáveis sendo pesquisadas. Se os resultados de indivíduos em itens ou testes caminham juntos, então, na medida em que existam correlações substanciais entre eles, está definido um fator.</p>
+</section>
+<section id="tipos-de-af" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="tipos-de-af"><span class="header-section-number">2.2</span> Tipos de AF</h2>
+<p>Técnicas analíticas fatoriais podem atingir seus objetivos ou de uma perspectiva exploratória ou de uma confirmatória. Existe um debate contínuo sobre o papel apropriado da análise fatorial, onde muitos pesquisadores consideram a AF apenas exploratória, útil na busca da estrutura em um conjunto de variáveis ou como um método de redução de dados. Sob essa perspectiva, as técnicas analíticas fatoriais consideram o que os dados oferecem e não estabelecem restrições a priori sobre o número de componentes a serem extraídos. Para muitas, talvez a maioria das aplicações, esse uso da AF é adequado. No entanto, em outras situações, o pesquisador tem preconcebido idéias sobre a real estrutura dos dados, baseado em suporte teórico ou em pesquisas anteriores. Ele pode desejar testar hipóteses envolvendo questões sobre, por exemplo, quais variáveis deveriam ser agrupadas em fator ou número exato de fatores. Nesses casos, o pesquisador espera que a análise fatorial desempenhe um papel confirmatório, ou seja, avalie o grau em que os dados satisfazem à estrutura esperada.</p>
+<section id="análise-fatorial-exploratória-afe" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="análise-fatorial-exploratória-afe"><span class="header-section-number">2.2.1</span> Análise Fatorial Exploratória (AFE)</h3>
+<p>È comum um pesquisador analisar dados relativos a um fenômeno sem dispor de um quadro de referência teórica que o oriente completamente. Na maioria das vezes, essa situação decorre da falta de investimento na estruturação teórica do problema, da existência de lacunas na teoria ou da falta de ajuste de um modelo teórico proposto de antemão aos dados observados. De qualquer modo, sempre deve haver um mínimo de teoria indispensável à utilização da AF, mesmo em sua forma exploratória. No mínimo, o pesquisador deve supor que, por trás das variáveis observadas, há uma estrutura de fatores ortogonais ou oblíquos. Isso por si só não é pouco, pois exclui relações causais entre fatores, relações causais entre variáveis observadas e correlações dos fatores únicos com outros fatores ou com variáveis cuja especificidade não determina.<br>
+Assumida a existência de uma estrutura fatorial subjacente, o objetivo primário da Análise Fatorial Exploratória é determinar a menor quantidade possível de fatores que possam reproduzir a estrutura de correlações das variáveis observadas. Secundariamente, o propósito é ajustar soluções em que um pequeno número de variáveis tenha carga elevada em cada fator, pois isso facilita a interpretação da solução.</p>
+</section>
+<section id="análise-fatorial-confirmatória-afc" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="análise-fatorial-confirmatória-afc"><span class="header-section-number">2.2.2</span> Análise Fatorial Confirmatória (AFC)</h3>
+<p>A aplicação na análise fatorial confirmatória procura verificar se os dados observados se comportam de acordo com uma expectativa teórica. Se isso ocorrer, serve como evidência favorável à validade dos dados e reforça a teoria proposta, se não acontecer, alerta para existência de problemas com os dados, com a teoria ou com ambos. O requisito mínimo para execução da análise fatorial confirmatória é o pesquisador possuir de antemão uma hipótese acerca da quantidade de fatores comuns e apresentar uma expectativa teórica sobre qual fator deve carregar em qual variável.</p>
+</section>
+</section>
+<section id="cargas-fatoriais" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="cargas-fatoriais"><span class="header-section-number">2.3</span> Cargas Fatoriais</h2>
+<p>As cargas fatoriais obtidas são, com efeito, reduções de dados muito mais complexos a tamanho manuseável para que o pesquisador possa interpretar melhor os resultados (KERLINGER, 1980).</p>
+<p>A expressão carga fatorial ocorre freqüentemente. Uma matriz de cargas fatoriais é um dos produtos finais da análise fatorial. Uma carga fatorial é um coeficiente, um número decimal, positivo ou negativo, geralmente menor do que 1, que expressa o quanto um teste ou variável observada está carregado ou saturado em um fator. Por outras palavras, quanto maior for a carga em cima de um fator, mais a variável se identifica com o que quer que seja o fator.</p>
+<p>Em síntese, a análise fatorial é essencialmente um método para determinar o número de fatores existentes em um conjunto de dados, para determinar quais testes ou variáveis pertencem a quais fatores, e em que extensão os testes ou variáveis pertencem a/ou estão saturados com o que quer que seja o fator.</p>
+<p>Assim, na AF uma situação, com inúmeras variáveis <span class="math inline">\((X_{1}, X_{2},..., X_{p})\)</span>, é explicada a partir de dimensões escondidas (fatores: <span class="math inline">\(F_{1}, F_{2}, F_{3}\)</span>). A Figura 1 demonstra graficamente o esquema geral da análise de fatores.</p>
+<p>Conforme a Figura 1, quanto mais fortes for às correlações entre algumas variáveis dentre o grupo inicial, mais nítida é a visualização do fator gerado. Variáveis agrupadas num mesmo fator possuem, portanto alta correlação, enquanto que variáveis de fatores distintos possuem baixa correlação.</p>
+</section>
+<section id="histórico-da-análise-fatorial" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="histórico-da-análise-fatorial"><span class="header-section-number">2.4</span> Histórico da Análise Fatorial</h2>
+<p>Historicamente, a origem das técnicas de análise de fatores ou análise fatorial está ligada a estudos da área de psicologia. Sua criação data do início do século XX, quando Karl Pearson (1901) e Charles Spearman (Spearman, 1904) desenvolveram um método para a criação de um índice geral de inteligência (fator “g”) com base nos resultados em vários testes (escalas)</p>
+<p>que refletiriam essa aptidão. Tratava-se de um primeiro método de AF, adequado para a estimação de um único fator. No entanto, o termo Análise de Fatorial foi introduzido por Louis L. Thurstone em 1931 no seu artigo Multiple Factor Analysis.</p>
+<p>Thurstone (1931) identificou sete habilidades mentais primárias, em vez de um único fator g. Estudos mais recentes têm alterado a quantidade de fatores a serem considerados na análise de inteligência. No início, os métodos apresentavam uma característica mais empírica do que inferencial.</p>
+<p>. Em 1933 Pearson e Hotteling deram um formalismo melhor as idéias criadas por Spearman, e assim impulsionado com essas idéias, em 1940 com Lawley, surge um primeiro trabalho com um maior rigor matemático, o que fez com que se aumentasse à aceitação dessas técnicas no ramo da psicologia (LAWLEY, 1940).</p>
+</section>
+<section id="definições-clássicas" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="definições-clássicas"><span class="header-section-number">2.5</span> Definições Clássicas</h2>
+<p>A análise fatorial (AF), de modo geral, é uma técnica estatística multivariada que tem como princípio analisar a estrutura das inter-relações (correlações) entre um grande número de variáveis, ou seja, descrever a estrutura de dependência de um conjunto de variáveis através da criação de fatores, que são variáveis que, supostamente, medem aspectos comuns (Hair et al, 2005). Com o emprego dessa técnica, inicialmente podem-se identificar as dimensões isoladas da estrutura dos dados e então determinar o grau em que cada variável é explicada por cada dimensão ou fator.</p>
+<p>Segundo Mingoti (2005), a AF tem como objetivo principal descrever a variabilidade original do vetor aleatório X, em termos de um número menor M de variáveis aleatórias, chamadas de fatores comuns e que estão relacionadas com o vetor original X através de um modelo linear. Neste modelo, parte da variabilidade de X, é atribuída aos fatores comuns, sendo o restante da variabilidade de X atribuído ás variáveis que não foram incluídas no modelo, ou seja, o erro aleatório.</p>
+<p>Para Barroso e Artes (2003), a AF é uma técnica que descreve a estrutura de dependência de um conjunto de variáveis, através da criação de fatores, que são variáveis que, supostamente, medem aspectos comuns. Reis (1997) descreve a AF como um conjunto de técnicas cuja finalidade é representar ou descrever um número de variáveis iniciais a partir de um menor número de variáveis hipotéticas.</p>
+<p>Trata-se de uma técnica estatística multivariada que, a partir da estrutura de dependência existente entre as variáveis de interesse (em geral representada pelas correlações ou covariâncias entre essas variáveis), permite a criação de um conjunto menor de variáveis (variáveis latentes ou fatores), obtidas a partir das originais.</p>
+<p>De acordo com Malhotra (2001), análise fatorial “é um nome genérico que denota uma classe de processos essencialmente para redução e sumarização dos dados”.</p>
+<p>A análise fatorial é uma técnica de interdependência na qual todas as variáveis são simultaneamente consideradas, cada uma relacionada com todas as outras, empregando o conceito da variável estatística, a composição linear das variáveis.</p>
+<p>Ela difere das técnicas multivariadas de dependência (Regressão Múltipla, Análise Discriminante, Análise Multivariada de Variância ou Correlação Canônica), nas quais uma ou mais variáveis são explicitamente consideradas como as variáveis de critério ou dependentes e todas as outras são as variáveis preditoras ou independentes.</p>
+<p>Na análise fatorial, as variáveis estatísticas (fatores) são formadas para maximizar seu poder de explicação do conjunto inteiro de variáveis, e não para prever uma variável(eis) dependente(s).</p>
+<p>Na concepção de Pasquali (2003), a análise fatorial é uma técnica caucada sobre o pressuposto de que uma série de variáveis observadas, medidas, chamadas de variáveis empíricas ou observáveis pode ser explicada por um número menor de variáveis não observáveis, chamadas precisamente de variáveis fontes, mais conhecidas sob o nome de fatores.</p>
+<p>As chamadas variáveis fontes seriam a causa do fato de que as variáveis observáveis se relacionam entre si, isto é, são responsáveis pelas intercorrelações (covariâncias) entre as variáveis. Supõe-se que, se as variáveis empíricas se relacionam entre si, é porque elas têm uma causa comum que produz esta correlação entre elas.</p>
+<p>E a esta causa comum que se chama de fator e cuja descoberta é precisamente a tarefa da análise fatorial. Então, nestas afirmações já fizemos dois postulados que a análise fatorial assume (Pasquali, 2003):</p>
+<ul>
+<li><p>Um número menor de variáveis-fonte é suficiente para explicar uma série maior de variáveis observáveis, isto é, redução do posto da matriz das intercorrelações entre as variáveis observáveis</p></li>
+<li><p>Princípio da Causalidade: As variáveis-fonte são as causas da covariância entre as variáveis observáveis, ou seja, a análise fatorial é um modelo causal.</p></li>
+</ul>
+<p>Com base no que foi dito anteriormente, pode-se, assim, expressar o Modelo Estatístico da Análise Fatorial de várias formas.</p>
+</section>
+<section id="modelo-estatístico-da-análise-fatorial" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="modelo-estatístico-da-análise-fatorial"><span class="header-section-number">2.6</span> Modelo Estatístico da Análise Fatorial</h2>
+<p>O modelo estatístico usado na análise fatorial explica uma estrutura de correlação existente entre um conjunto de informações, diretamente observado por meio de combinação linear de variáveis, as quais não são diretamente observadas, denominados fatores comuns, acrescidas de componente residual. Um modelo de análise fatorial pode ser apresentado na seguinte forma conforme (DILLON e GOLDSTEIN, 1984).</p>
+<p>Sejam variáveis aleatórias, m fatores comuns; m&lt;p.</p>
+<p><span class="math display">\[ X = \sum_{j=1}^{m}\lambda_{ij}F{j} + \epsilon_{i}  \]</span></p>
+<p>Em que:</p>
+<p><span class="math inline">\(X_{i}\)</span> = variáveis originais ou observadas;</p>
+<p><span class="math inline">\(Y_{i}\)</span> = Cargas fatoriais da i-ésima variável no j-ésimo fator comum e refletem a importância do j-ésimo fator na composição da i-ésima variável.</p>
+<p><span class="math inline">\(F_{j}\)</span> = variáveis não-observáveis ou variáveis latentes chamadas de fatores comuns;</p>
+<p><span class="math inline">\(Z_{i}\)</span> = Fatores específicos que descrevem a variação residual especifica da i-ésima variável (resíduo que afeta somente <span class="math inline">\(X_{i}\)</span> ). É a parte da variável <span class="math inline">\(X_{i}\)</span> que não é explicada pelos fatores comuns</p>
+<p>Em notação matricial pode-se escrever o modelo como:</p>
+<p><span class="math display">\[ X = \Lambda F + \epsilon \]</span></p>
+<p><span class="math display">\[
+X =
+\left[
+\begin{array}{c}
+   X_{1}  \\
+   X_{2}  \\
+     ...  \\
+   X_{p}   \\
+\end{array}
+\right]
+\]</span></p>
+<p><span class="math display">\[
+F =
+\left[
+\begin{array}{c}
+   F_{1}  \\
+   F_{2}  \\
+     ...  \\
+   F_{m}   \\
+\end{array}
+\right]
+\]</span> <span class="math display">\[
+\Lambda =
+\left[
+\begin{array}{cccc}
+   \lambda_{11} &amp; \lambda_{12}  &amp;  ...  &amp;  \lambda_{1m} \\
+   \lambda_{21} &amp; \lambda_{21}  &amp;  ...  &amp;  \lambda_{2m}  \\
+        ...     &amp;   ...         &amp;  ...  &amp;   ...         \\
+   \lambda_{p1} &amp; \lambda_{p2}  &amp;  ...  &amp;  \lambda_{pm}     \\
+\end{array}
+\right]
+\]</span></p>
+<p><span class="math display">\[
+X =
+\left[
+\begin{array}{c}
+   \epsilon_{1}  \\
+   \epsilon_{2}  \\
+     ...  \\
+   \epsilon_{p}   \\
+\end{array}
+\right]
+\]</span></p>
+<p>Outra forma de expressar o modelo de análise fatorial ortogonal. Seja X(px1) um vetor de variáveis observadas com vetor de médias µ, onde , matriz de</p>
+<p><span class="math display">\[ E(X) = \mu = (\mu_{1},\mu_{2},\mu_{3}...,\mu_{p}),\]</span> matriz de covariâncias ∑(pxp) e a matriz de correlação R(pxp). Um modelo de análise fatorial ortogonal é dado por: (<em>JOHNSON e WICHERN, 1992; BARROSO e ARTES, 2003; MINGOTI, 2005</em>).</p>
+<p><span class="math display">\[ X_{1} - \mu_{1} = l_{11} F_{1} + l_{12}F_{2} + ...+ l_1mF_m + \epsilon_1 \]</span> <span class="math display">\[ X_{2} - \mu_{2} = l_{21} F_{1} + l_{12}F_{2} + ...+ l_2mF_m + \epsilon_2 \]</span> <span class="math display">\[                                                                                                                                                                                                                                                                                                \]</span></p>
+<p>Matricialmente, o modelo (2) pode ser expresso por:</p>
+<p><span class="math display">\[ X - \mu = LF + \epsilon \]</span></p>
+<p>Neste modelo, o coeficiente F(mx1) é um vetor aleatório, na qual, F1,…,Fp são os fatores ou fatores comuns, também chamados de variáveis latentes, que descrevem os elementos da população em estudo e não são observáveis, ou seja, não podem ser medidos a priori. O elemento ε(px1) é um vetor de erros aleatórios, no qual ε1,….,εp são chamados de erros de medidas ou fatores específicos, que não é explicado pelos fatores comuns. O coeficiente L(pxm) é comumente chamado de cargas fatoriais.Uma interpretação possível para os componentes desses modelos pé que se pretende explicar o padrão de respostas de uma pessoa através do valor que ela tem nos contructos que atuam nos dados (fatores comuns), as cargas fatoriais indicam a importância que cada constructo tem na determinação do valor de cada variável e os fatores específicos dão conta da parte de cada variável que não é explicada pelos fatores comuns.A Figura 2 ilustra as relações existentes no modelo fatorial. Trata-se de um diagrama nos quais as variáveis observadas são representadas por retângulos, as variáveis latentes por círculos, os erros não têm uma representação gráfica e as setas partem de uma variável independente e atingem uma variável dependente. Alem disso, possíveis correlações devem ser indicadas por arcos.</p>
+<p>$$</p>
+<p>$$ Figura 2. Diagrama Geral de Caminhos Possíveis em um Modelo de Análise Fatorial (<em>adaptado de Barroso e Artes, 2003</em>).</p>
+<p>As variáveis expressas em termos de vetores num sistema de coordenadas ortogonais, em que o comprimento representa a magnitude, agrupados conforme o relacionamento entre si. Por esses agrupamentos de vetores poderá passar eixos, denominados fatores (factor), que acusarão, pelo valor da projeção dos vetores sobre os eixos, a carga fatorial (factor loading) das variáveis sobre si. Esses fatores representam o número mínimo de causas de que condicionam um máximo de variabilidade existente. A comunalidade (Communallity), h2, isto é, a soma dos quadrados das cargas fatoriais das variáveis sobre cada fator indica a eficiência dos mesmos na explicação da variabilidade total.</p>
+<p>Os fatores são encontrados fazendo com que o primeiro eixo esteja em tal posição que a soma dos quadrados dos pesos fatoriais em relação a ele seja maximizada, o que equivale a colocá-lo paralelamente ao principal agrupamento de vetores. O segundo eixo é colocado ortogonalmente, de modo que também seja maximizada a soma de quadrados dos pesos fatoriais para este segundo eixo, e assim por diante quanto aos demais fatores.</p>
+<p>Uma das dificuldades resultantes deste procedimento é que o padrão de carregamento para cada componente pode não fornecer dimensões facilmente interpretáveis. Por exemplo, em uma matriz de coeficientes de correlação em que nenhum dos coeficientes é particularmente alto, o padrão de carregamento que pode ocorrer com respeito ao primeiro fator pode ser da mesma ordem relativa de magnitude que o existente em relação ao segundo fator, ao terceiro fator, etc. Haverá necessidade, então de uma rotação dos eixos fatoriais. A finalidade dessa rotação é maximizar colocando os eixos fatoriais numa única posição tal que cada fator possa ser interpretado pelos maiores carregamentos possíveis relacionados com o menor número de variáveis possível.</p>
+<p>No modelo usual de análise fatorial ortogonal, algumas suposições são necessárias para que se possa operacionalizar a estimação do modelo (1), fazendo-se as seguintes suposições sobre:</p>
+<p><span class="math display">\[ E F_{(m \times1)}= 0 \]</span> <span class="math display">\[ Var (F_{(m \times1)})=1=I{(n_\times m )} =  \left[
+\begin{array}{cccc}
+   {1} &amp; {2}  &amp;  ...  &amp;  {3} \\
+   {0} &amp; {1}  &amp;  ...  &amp;  {0}  \\
+        ...     &amp;   ...         &amp;  ...  &amp;   ...         \\
+   {0} &amp; {0}  &amp;  ...  &amp;  {1}     \\
+\end{array}
+\right]                      \]</span></p>
+<p><span class="math display">\[  VAR(\epsilon_{(p \times p)}) = \psi = \left[
+\begin{array}{cccc}
+   {\psi1} &amp; {0}  &amp;  ...  &amp;  {0} \\
+   {0} &amp; {\psi2}  &amp;  ...  &amp;  {0}  \\
+        ...     &amp;   ...         &amp;  ...  &amp;   ...         \\
+   {0} &amp; {0}  &amp;  ...  &amp;  {\psi}     \\
+\end{array}
+\right]     
+\]</span></p>
+<p>Além disso, num modelo ortogonal, admitimos:</p>
+<p><span class="math display">\[  COV F_{(m \times1)} = I_{(m\times m)} \]</span> onde I é a matriz identidade de ordem m.</p>
+<p><span class="math display">\[  COV (\epsilon_{(m \times1)}) = \psi  \]</span></p>
+<p><span class="math display">\[ COV (F_{(m \times1)}  ; (\epsilon_{(m \times1)}) = 0 \]</span> A partir dessas suposições, é possível analisar o modelo proposto e interpretar suas componentes.</p>
+<p>2.6.1. Comunalidades</p>
+<p>A porção da variância que a variável contribui para o fator comum m é chamada de comunalidade. A porção da variância <span class="math display">\[Var(X) =  \alpha^2 \]</span> devido ao fator específico, chama-se especificidade ou variância específica. Então tem-se que</p>
+<p>A variância de cada variável <em>Xi</em> é a soma das Comunalidades <em>hi²</em> com suas respectivas especificidades ou variância específica <span class="math display">\[ \psi_i \]</span>.Desta forma, tem-se as seguintes equações</p>
+<p><span class="math display">\[ \alpha_Ij = l^2 i1 + l^2i2 + ... + l^2 im + \psi_i \]</span> Denotando-se a i-ésima comunalidade por <em>hi²</em> tem-se <span class="math display">\[ h^2 = l^2i1 + l^2i2 + ... + l^2 im = \sum_j^m l^2ij \]</span> COM <em>1,2,…,P</em> Então <span class="math display">\[ \alpha_i^2 = \alpha_ij = h_i^2 + \psi_i ,i=1,2,...,p \]</span> A i-ésima comunalidade é a soma dos quadrados dos carregamentos da i-ésima variável com m fatores comuns.Portanto as comunalidades são as maiores parcelas do total da variância de uma variável Xi. A segunda parcela é proveniente da variância específica de cada variável, representada por <span class="math display">\[ \psi \]</span>. Quanto mais a comunalidade se aproximar de <em>1</em>, melhor será o modelo fatorial. Autores consideram boa comunalidade valores acima de <em>0,70</em>.</p>
+</section>
+<section id="principais-etapas-para-aplicação-da-análise-fatorial" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="principais-etapas-para-aplicação-da-análise-fatorial"><span class="header-section-number">2.7</span> Principais Etapas para Aplicação da Análise Fatorial</h2>
+<p>A análise fatorial possui, basicamente, oito etapas para a sua elaboração que são:</p>
+<ul>
+<li><p>Formular o Problema: Formulação do problema da análise fatorial e identificação das variáveis originais que serão investigadas para resumo ou redução dos dados.</p></li>
+<li><p>• Cálculo da Matriz de Correlação: Cálculo da matriz de correlação das variáveis em estudo para a verificação do grau de associação entre as variáveis. Para testar a conveniência do modelo fatorial, pode-se aplicar o teste de esfericidade de Bartlett para testar a hipótese nula de que as variáveis não sejam correlacionadas na população, ou seja, que a matriz de correlação da população é uma matriz de identidade. Outra estatística utilizada pode ser a medida de adequacidade da amostra de Kaiser-Meyer-Olkin <em>(KMO)</em>, um índice usado para avaliar a medida de adequacidade da amostra da análise fatorial. Valores altos <em>(entre 0,5 e 1,0)</em> indicam que a análise fatorial é apropriada. Assim, a partir de uma análise da matriz de correlação das diversas variáveis, é possível obter indicadores sintéticos, ou, utilizando o termo técnico, escores fatoriais, que consistem numa combinação linear das variáveis originais que as sintetizam e explicam <em>(KAISER E RICE, 1974, SPSS, 1999)</em></p></li>
+<li><p>Método de Análise: Escolha do método de análise fatorial mais apropriado para extração dos fatores a serem utilizados existem vários dentre os mais usuais são: Método de Componentes Principais, Método de Análise Fatorial Comum e Método de Máxima Verossimilhança.</p></li>
+<li><p>Extrair Fatores Iniciais: Extração dos fatores (<em>cargas fatoriais</em>) mais significativos que representarão os dados, através do método mais adequado. Podem ser: a priori, com base em autovalores, com base em um gráfico de Declive (<em>Scree Plot</em>), na percentagem da variância. Aqui se sabe o quão bem o modelo representa os dados (<em>HAIR et. al, 2005</em>).</p></li>
+<li><p>Rotação dos Fatores: Aplicar algum tipo de rotação nos fatores para facilitar o entendimento dos mesmos. Podem ser: ortogonal, quando os eixos são mantidos em ângulo reto e rotação oblíqua, quando os eixos não são mantidos em ângulo reto. (Geralmente, utiliza-se rotação para transformar a matriz de fatores em uma matriz mais simples e mais fácil de interpretar. O método de rotação mais comumente usado é o processo varimax que objetiva diminuir o número de variáveis com cargas fatoriais altas em um só fator, resultando em fatores ortogonais. Se há fatores altamente correlacionados na população pesquisada, pode-se usar a rotação oblíqua).</p></li>
+<li><p>Interpretação de Fatores: É facilitada através da identificação das variáveis que apresentam grandes cargas sobre o mesmo fator. O fator pode então ser interpretado em termos das variáveis que o pesam fortemente</p></li>
+<li><p>Cálculo dos Escores Fatoriais: Escores fatoriai são estimados para cada observação nos fatores derivados. A redução de dados pode ser conseguida calculando escores para cada dimensão latente e substituindo as variáveis originais pelos mesmos. A análise fatorial pode auxiliar na seleção de um subconjunto representativo de variáveis ou mesmo da criação de novas variáveis como substitutas das variáveis originais, e ainda mantendo seu caráter original.</p></li>
+<li><p>Determinação do Ajuste do Modelo: As diferenças entre as correlações observadas <em>(matriz de entrada</em>) e as correlações reproduzidas (<em>estimada com base na matriz de fatores</em>) são chamadas de resíduos e se há muitos resíduos grandes, o modelo fatorial não dá um bom ajuste aos dados, e deve ser reconsiderado.</p></li>
+</ul>
+<p>2.8. Métodos de Estimação dos Fatores</p>
+<p>Há na literatura vários métodos para a estimação de fatores tais como: Method Unweighted Least Squares, Method Generalized Least Squares, Method Maximun Likelihood, Method Principal Axis Factoring, Method Principal Components, Method Alpha Factoring, Method Image Factoring.</p>
+<p>Sendo o Method Unweighted Least Squares um dos métodos de extração que minimiza a soma das diferenças quadráticas entre a matriz de dados e a matriz de correlação reproduzida, ignorando as diagonais. O Method Generalized Least Squares idem ao anterior, mas neste caso a correlação é pesada pelo inverso das suas singularidades, assim como as variáveis com altas singularidades são tomadas com peso menor que aquelas com menor singularidades.</p>
+<p>Com relação ao Method Maximun Likelihood, este cria parâmetros estimados como sendo mais prováveis para produzir a matriz de correlação observada, se a amostra pode ser caracterizada por uma distribuição normal multivariada. As correlações são pesadas pelo inverso das singularidades das variáveis, pelo emprego de um algoritmo <em>iterativo</em>. O Method Principal Axis Factoring parte da matriz de correlação original com os coeficientes de correlações múltiplos colocados na diagonal como estimativas iniciais das comunalidades. Estes fatores obtidos são usados para estimar as novas comunalidades, que são recolocadas no lugar das velhas na diagonal. As Iterações continuam até a ocorrerem mudanças nas comunalidades partindo da primeira até a seguinte, buscando satisfazer o critério de convergência de extração. O Método das Componentes Principais é usada para obter uma combinação linear não-correlata das combinações das variáveis mensuradas, obtendo-se as soluções dos fatores, ela pode ser usada quando a matriz de correlação é singular. Method Alpha Factoring é um método de extração que considera as variáveis na análise como uma amostra do universo potencial de variáveis. Ele maximiza a confiabilidade ou fidedignidade alfa (de Cronbach) dos fatores. Já o Method Image Factoring é um método fatorial de extração desenvolvido por Guttman e está baseado na Teoria de Imagens. A parte comum da variância, chamada de imagem parcial, é definida como uma regressão linear sobre as restantes, preferivelmente que a função dos fatores hipotéticos.</p>
+<p>Assim abordam-se mais detalhadamente os métodos de estimação dos fatores mais popularmente usados: Análise de Fatores via Método das Componentes Principais e Método de Máxima Verossimilhança</p>
+<p>2.8.1. Método das Componentes Principais</p>
+<p>Uma Análise das Componentes Principais diz respeito a explicar a estrutura da variância e da covariância através de poucas combinações lineares das variáveis originais. Seu objetivo geral consiste tanto em reduzir os dados como interpretá-los adequadamente. Uma análise das componentes principais freqüentemente revela relações que não eram previamente consideradas e assim permitem interpretações que não iriam, de outro modo, aparecer <em>veja, BARROSO; ARTES, 2003</em>.</p>
+<p>2.8.2. Método da Máxima Verossimilhança</p>
+<p>Um método bastante conhecido para a obtenção dos fatores é o da máxima verossimilhança, onde, em sua versão usual, supõe-se que as variáveis envolvidas sigam uma distribuição normal. Esse método, em geral, não é indicado para os casos onde a suposição de normalidade das variáveis envolvidas não esteja satisfeita <em>ver JOHNSON;WICHERN, 1998</em>.</p>
+<p>Admita $ X ~ N_{p} (,) , com = LL + . $ Um problema com esse modelo é que ele não é identificável, uma vez que há infinitas matrizes L que o satisfazem. Isso exige a introdução de restrições de identificabilidade. Uma restrição conveniente do ponto de vista computacional é, por exemplo,<span class="math inline">\(L \psi L\)</span> ser uma matriz diagonal.</p>
+<p>Considere uma amostra <span class="math inline">\(X_1 ,...,X_n\)</span> de vetores independentes de X . As estimativas de máxima verossimilhança de <span class="math inline">\(\mu,L, \psi\)</span> são obtidas a partir da maximização da função de verossimilhança abaixo.</p>
+<p><span class="math display">\[ L (\mu,\sum) = \frac{1}{2\pi}^np \frac{np}{2}\ \frac{1}\sum ^\frac{n}{2}_\ exp  \left( -\frac{1}{2}  \sum_{i=1}^{n}(X_{i}- \mu \sum^{-1}) (X_i - \mu) \right ) \]</span></p>
+<p>Não há uma solução explícita para os estimadores, o que exige o uso de métodos numéricos para a maximização da função acima. O estudo de tais métodos pode ser visto em <em>ANDERSON, 1984</em>.</p>
+<p>A vantagem de se trabalhar com estimadores de máxima verossimilhança é que a inferência estatística nos garante sua consistência e normalidade assintótica, o que permite a construção de intervalos de confiança e testes de hipóteses, para grandes amostras.</p>
+<p>Um teste utilizado para avaliação da escolha do número de fatores é o Teste de Razão de Verossimilhança que considera as seguintes hipóteses.</p>
+<p><span class="math display">\[ H_0 : \sum = LL + \psi \]</span></p>
+<p><span class="math display">\[ H_1 : \sum \neq LL + \psi \]</span></p>
+<p>Sejam <span class="math display">\[ S_n = \sum_{i=1}^{n} (X_i - X) (X - X)  \sum^{1} = LL + \psi  \]</span> onde,onde e são os estimadores de máxima verossimilhança de L e ,<span class="math inline">\(\psi\)</span> respectivamente. A estatística do teste é dada por:</p>
+<p><span class="math display">\[ TRV = -2ln  \left( \frac{\sum^{1}}{S_n} \right )   \]</span> Sob a hipótese nula, TRV segue uma distribuição qui-quadrado com</p>
+<p>2.9. Métodos de Rotação dos Fatores</p>
+<p>Uma ferramenta importante na interpretação de fatores é a rotação fatorial. O termo rotação significa exatamente o que sugere. Especificamente, os eixos de referência dos fatores são rotacionados em torno da origem até que alguma outra posição seja alcançada. As soluções de fatores não-rotacionadas extraem fatores na ordem de sua importância. O primeiro fator tende a ser um fator geral com quase toda a variável com carga significativa, e explica a quantia maior de variância. O segundo fator e os seguintes são então baseados na quantia residual de variância. Cada fator explica porções sucessivamente menores de variância. O efeito final de rotacionar a matriz fatorial é redistribuir a variância dos primeiros fatores para os últimos com o objetivo de atingir um padrão fatorial mais simples e teoricamente mais significativo.</p>
+<p>O caso mais simples de rotação é uma rotação ortogonal, na qual os eixos são mantidos a 90º. Também é possível rotacionar os eixos sem manter o ângulo de 90 graus entre os eixos de referência. Procedimento de rotação se chama rotação oblíqua.</p>
+<p>2.9.1. Rotação Ortogonal</p>
+<p>Para rotação ortogonal dos fatores existem vários tipos na literatura como: Varimax (mais usado) é um método de rotação ortogonal que minimiza o número de variáveis que cada agrupamento terá. Ele simplifica a interpretação dos fatores. Quartimax é um método que minimiza o número de fatores necessários para explicar cada variável. Ele simplifica a interpretação das variáveis obtidas. O Equamax é também um método que busca uma combinação dos outros (varimax e quartimax). O número de variáveis obtido terá carga fatorial maior e o número de fatores será minimizado.</p>
+<p>2.9.1.1. Rotação Varimax</p>
+<p>A rotação varimax é uma das rotações ortogonais mais utilizadas em análise fatorial. Intuitivamente, ela busca soluções nas quais se busca maximizar as correlações de cada variável com apenas um fator.</p>
+<p><span class="math display">\[\propto_i i= 1 ,...., p, j = i,...,m \]</span> as cargas fatoriais rotacionadas. Defina <span class="math inline">\(\beta_ij = \frac{\alpha_ij}{C_i^2} = \beta_j = \sum_{i=1}^{p} \frac{\beta_ij}{P}\)</span></p>
+<p>Note que <span class="math inline">\(\beta{i_j}\)</span> pode ser interpretada como a proporção da comunalidade de <span class="math inline">\(X_i\)</span> que é explicada pelo fator j. A matriz de rotação será escolhida de sorte a maximizar.</p>
+<p><span class="math display">\[ V = \sum_{j=1}^{P}V_i , V_j = \sum_{i=1}^{P} \frac{\beta_ij- \beta_j}{P}^2 \]</span> O método varimax é um processo em que os eixos de referência dos fatores são rotacionados em torno da origem até que alguma outra posição seja alcançada. Intuitivamente, ela busca soluções nas quais se busca maximizar as correlações de cada variável com apenas um fator. O objetivo é redistribuir a variância dos primeiros fatores para os demais e atingir um padrão fatorial mais simples e teoricamente mais significativo <strong>REIS, 2001; HAIR, 2005</strong></p>
+<p><em>Varimax</em> é um tipo de rotação ortogonal na qual mantém os fatores perpendiculares entre si, ou seja, sem correlação entre eles. È o tipo de rotação mais utilizado e que tem como característica o fato de min imizar a ocorrência de uma variável possuir altas cargas fatoriais para diferentes fatores, permitindo que uma variável seja facilmente identificada como único fator <strong>CORRAR et al, 2007</strong></p>
+<p>Tabela 1. Comparação entre cargas fatoriais rotacionados e não-rotacionados.</p>
+<p>No primeiro fator não-rotacionado, todas as variáveis tem carga alta. No segundo fator as variáveis 1 e 2 e são muito altas na direção positiva. A variável 5 é moderadamente alta na direção negativa e as variáveis 3 e 4 tem cargas consideravelmente menores na direção negativa.</p>
+<p>A partir da inspeção visual da Figura 1, verifica-se que há dois agrupamentos de variáveis, sendo que as variáveis 1 e 2 estão juntas, assim como as variáveis 3,4 e 5. no entanto, tal padrão de variáveis não é tão óbvio a partir das cargas fatoriais não-rotacionadas. Rotacionando os eixos originais no sentido horário, como indica na Figura 1, obteu-se um padrão de cargas fatoriais completamente diferentes. Observou-se que, rotacionando os fatores, os eixos são mantidos a <em>90 graus</em>. Esse procedimento significa que os fatores são matematicamente independentes e que a rotação foi ortogonal.</p>
+<p>2.9.2. Rotação Oblíqua</p>
+<p>Para rotação obliqua dos fatores cita-se: Direct Oblimin um método diferentemente dos três anteriores é oblíquo (não ortogonal). Quando delta é igual a 0 (default), a solução é mais oblíqua. Tomando-se delta mais negativo, os fatores ficaram menos oblíquos. Ignorando-se o default delta de 0, deve-se usar um número menor ou igual a 0,8. O Promax também é um método oblíquo de rotação, o qual possibilita os fatores correlatos. Ele pode ser calculado mais rapidamente que a rotação direct oblimin. Assim ele é usado para grandes grupos de dados. Kappa na maioria das vezes é tomado com o valor 4. Existem outros métodos de rotação oblíqua na literatura como: Covarimin, Oblimax e Quartimin, mas que não são tão usados como os anteriores mensionados.</p>
+<p>Os mesmos princípios gerais de rotações ortogonais são aplicáveis a rotações oblíquas. O método de rotação oblíqua é mais flexível, pois os eixos fatoriais não precisam ser ortogonais. Além disso, é mais realista porque as dimensões inerentes que são teoricamente importantes não são supostas sem correlações entre si. Na Figura 2, os dois métodos rotacionais são comparados. Nota-se que a rotação fatorial oblíqua representa o agrupamento de variáveis com maior precisão. Essa precisão é resultado do fato de que cada eixo fatorial rotacionado agora está mais próximo do respectivo grupo de variáveis. Além disso, a solução oblíqua fornece informações sobre o grau em que os fatores realmente estão correlacionados um com o outro.</p>
+<p>2.10. Métodos de Escolha do Número de Fatores</p>
+<p>A escolha do número de fatores é uma das tarefas mais importante de uma análise fatorial. Quando o pesquisador opta por um número muito reduzido, ele pode não identificar estruturas importantes existentes nos dados e, por outro lado, se o número é excessivo, ele pode vir a ter problemas de interpretação dos fatores. Existem, na literatura, vários critérios que auxiliam na determinação do número de fatores que, invariavelmente, quando empregados em um mesmo conjunto de dados, conduzem a resultados diferentes (<strong>HAIR, 1998</strong>).</p>
+<p>Os métodos de escolha, que se passou a descrever, têm caráter apenas indicativo, não existindo uma hierarquia entre eles.</p>
+<p>• Técnica de Raiz Latente (<strong>Critério de Kaiser</strong>) = Esta técnica parte do princípio de que qualquer fator individual deve explicar a variância de pelo menos uma variável para que seja mantido para interpretação. Cada variável contribui com um valor 1 do autovalor total. Com efeito, apenas os fatores que têm raízes latentes ou autovalores maiores que 1 são considerados significantes e os demais fatores com autovalores menores do que 1 são considerados insignificantes e descartados (<strong>KAISER, 1958</strong>).</p>
+<p>• Critério da Porcentagem da variância explicada = O número é determinado de modo que o conjunto de fatores comuns explique uma porcentagem pré-definida da variabilidade global, por exemplo, desejamos explicar pelo menos 70% da variabilidade total dos dados.</p>
+<p>• Critério Scree Test = È comum que a diferença de explicação entre os primeiros fatores de uma AF seja grande e que tenda a diminuir com o aumento no número de fatores. Por este critério, o número ótimo de fatores é obtido quando a variação da explicação entre fatores consecutivos passa a ser pequena. Com isso, de acordo com a Figura 5, pode-se verificar melhor o Critério Scree Test junto com o Critério da Raiz Latente ou de Kaiser.</p>
+<p>• Métodos Inferenciais = Outros métodos foram desenvolvidos para os casos em que as variáveis originais seguem uma distribuição normal. Esses métodos consistem no desenvolvimento de testes estatísticos que se alicerçam na suposição de normalidade e, dessa forma, não são, em princípio, adequados à análise da maioria das escalas psicológicas. Apesar disso, esses métodos podem ser utilizados com um fim puramente indicativo, sendo que a significância obtida nessas situações não corresponde à realidade. Dentre esses testes destacamos o de Bartlett (<strong>Johnson e Wichern, 1992</strong>) que verifica a adequabilidade do modelo de AF estimado (<strong>pelo método da máxima verossimilhança</strong>) para representar a estrutura de dependência dos dados.</p>
+<p>Um teste de hipótese formulado para auxiliar na decisão do número de fatores m que são suficientes para o modelo de análise fatorial, pode ser feito quando os vetores X e F tiverem distribuições normais multivariada. Este teste é válido somente para amostras de tamanhos grandes. Considere as seguintes hipóteses.</p>
+<p><span class="math inline">\(H_0\)</span> : m Fatores e Suficiente</p>
+<p><span class="math inline">\(H_1\)</span> : É necessario um número maior que m Fatores</p>
+<p>Então, a estatística de teste (<strong>BARTLETT, 1954</strong>) é dada por:</p>
+<p><span class="math display">\[ T = [ N - 1 ] (\frac{2_p + 4m + 5}{6}) LN (\frac{|L_p\times m|L_(m \times p) + \psi_(p \times p|)}{|(R_p \times p)|})\]</span> Onde <span class="math inline">\(L(P\times m)\)</span> e <span class="math inline">\(\psi\)</span> São as estimativas de máxima verossimilhança das matrizes <span class="math inline">\(L(P\times m)\)</span> e <span class="math inline">\(\psi\)</span> Sob a hipótese nula, a estatística T tem aproximadamente uma distribuição quiquadrado com <span class="math inline">\(\frac{1}{2} [(p - m^2)- p - m]\)</span> graus de Liberdade.Desse modo a hipotése nula será rejeirada quando o valor observado de T for maior ou igual que o ponto critico da distribuição qui-quadrado para o nivel de significância utilizada para o teste.</p>
+<p>2.11. Tamanho de Amostra para Aplicação da Análise de Fatores</p>
+<p>Uma AF envolve a estimação de um grande número de parâmetros e, para que isso seja feito com um mínimo de qualidade, é necessário um tamanho amostral relativamente grande em comparação ao número de variáveis envolvidas. Há, na literatura estatística, uma série de sugestões para a escolha desse tamanho amostral. Em geral, essas opções baseiam-se na experiência pessoal dos diversos autores que, em alguns casos, sugerem um tamanho amostral da ordem de 20 vezes o número de variáveis envolvidas (<strong>ver Hair et al., 1995</strong>). <strong>Reis (1997</strong>) e <strong>Hair et al.&nbsp;(1995</strong>) sugerem que o número de observações deva ser de no mínimo 5 vezes o número de variáveis, além disso, indicam que preferencialmente a análise seja feita com pelo menos 100 observações. <strong>Hair et al.&nbsp;(2005</strong>) enfatiza que ela não deve ser utilizada em amostras inferiores a 50 observações.</p>
+<p>2.12. Escores Fatoriais</p>
+<p>Quando o objetivo final da análise de dados é a descrição e o entendimento da estrutura de correlação das variáveis, o que vimos sobre análise fatorial pode levar às respostas desejadas. Outras vezes, entretanto, os objetivos da pesquisa podem envolver análises posteriores aplicadas aos fatores identificados aos dados. È suposto que cada variável na amostra tenha um valor para cada um dos Fatores Comuns, que, como já foi dito, não são diretamente observáveis. Esses valores são os chamados Escores Fatoriais que posteriormente podem ser utilizados em outras análises conjuntamente. (<strong>BARROSO; ARTES, 2003</strong>).</p>
+<p>2.13. Métodos de Estimação dos Escores Fatoriais</p>
+<p>Existem na literatura vários métodos de estimação dos escores fatoriais para cada elemento amostral, tais como: <strong>o Método dos Mínimos Quadrados Ponderados, Método de Bartlett, Método de Anderson Rubin e o Método de Regressão.</strong></p>
+<p>Sendo o Método de Regressão usado para estimar os escores dos coeficientes dos fatores. Os escores gerados têm média 0 e variância igual ao quadrado da correlação múltipla entre os escores dos fatores estimados e os valores verdadeiros dos fatores. Os escores devem ser igualados com os fatores ortogonais.</p>
+<p>Em relação ao Método de Bartlett usado também para estimação dos escores dos coeficientes dos fatores. Os escores produzidos têm média de zero. A soma dos quadrados de um fator é feita sobre a extensão das variáveis minimizadas. Já o Método de Anderson Rubin é similar ao de Bartlett a diferença está em garantir a ortogonalidade dos fatores estimados. Os escores gerados têm uma média de 0, desvio padrão de 1,0 e são não correlatos.</p>
+<p>2.13.1. Método de Regressão</p>
+<p>Para a determinação dos escores fatoriais, estimou-se através de algum Método de Extração a matriz de escores fatoriais após algum Método de Rotação da estrutura fatorial inicial, usando especificamente o <strong>Método de Regressão</strong>. Para cada fator , o i-ésimo escore fatorial extraído é definido por , expresso da seguinte forma (<strong>DILLON; GOLDSTEIN, 1984</strong>):</p>
+<p><span class="math display">\[F_ij = b_1x_i1 + b_2X_i2 + ... + b_pX_ip\]</span> Em que:</p>
+<p>$ b_i$ são os coeficientes de regressão estimados para os n escores fatoriais comuns; <span class="math inline">\(x_ij\)</span> são as n observações das p variáveis observadas.</p>
+<p>A variável não é observável, mas pode ser estimada por meio das técnicas de análise fatorial, utilizando-se a matriz de observações do vetor x de variáveis observáveis. Em notação matricial, a equação 2, torna-se:</p>
+<p><span class="math display">\[ F(n_,q) = X(n_,p) b(p_q)\]</span><br>
+<strong>Na equação 11</strong>, <strong>F</strong> é a matriz da regressão estimada a partir dos <strong>n</strong> escores fatoriais e que pode ser afetada tanto pela magnitude quanto pelas unidades de medida das variáveis <strong>x</strong>. Para contornar este tipo de problema, substitui-se a variável <strong>x</strong> pela variável padronizada <strong>w</strong>, dada pela razão entre o desvio em torno da média e o desvio-padrão de <strong>x</strong>, como a seguir:</p>
+<p><span class="math display">\[ W_ij = \frac{X_i - X}{S_x}\]</span></p>
+<p><span class="math display">\[F(n_,p) = W(n_,p) \beta_(n,p)\]</span> <strong>Na equação 12</strong>, a matriz de pesos <span class="math inline">\(\beta\)</span> com <strong>q</strong> colunas e <strong>p</strong> coeficientes de Regressão padronizados, substitui <strong>b</strong> , dado que as variáveis estão padronizadas em ambos os lados da equação .Pré-multiplicando ambos os lados da equação 12 pelo valor <span class="math display">\[(\frac{1}{n})w\]</span> em que n é o número de observações e <em>w</em> é a matriz transposta de w, obtém-se</p>
+<p><span class="math display">\[ \frac{1}{n} W_{(p,n)} F_{(n,q)} = \frac{1}{n}W_{(n,p)} \beta_{(p,p)} = R_{(p,p)} \beta_{(p,q)}                                     \]</span> A matriz <span class="math inline">\(\frac{1}{n}\)</span> w’ w se constitui na matriz de variaveis intercorrelacionadas ou matriz de correlação entre as observações da <strong>matriz x</strong>, designada por <strong>R</strong>. A matriz <span class="math display">\[\frac{1}{n}\]</span> w’ F’ representa a correlação entre os escores fatoriais e os próprios fatores, denotada por . Reescrevendo a equação 13, tem-se que: <span class="math display">\[ \wedge_{(p,q) = R_{(p,p)} \beta{(p,q)}}\]</span> Se a matriz <strong>R</strong> for não-singular, pode-se pré-multiplicar ambos os lados da equação 14 pela inversa de <strong>R</strong>, obtendo-se: <span class="math display">\[ \beta = R^{-1}\wedge\]</span> Substituindo o vetor <span class="math inline">\(\beta\)</span> na equação 12, obtém-se o escore fatorial associado a cada observação, como a seguir: <span class="math display">\[ F_ {(n,p)}W_{(n,p)}R^{-1}(p_,p)\wedge{(p,q)}\]</span></p>
+<p>2.14. Padronização dos Escores Fatoriais</p>
+<p>Ao realizar a análise sobre um conjunto de dados com variáveis com variâncias de magnitudes diferentes (provenientes de diversos setores), podemos estar introduzindo dificuldades na explicitação dessa dependência. Nos casos que existe uma grande diferença entre as variâncias das variáveis originais, sugere-se que a análise seja realizada sobre as variáveis padronizadas (<strong>Johnson, 1998</strong>). Para facilitar a comparabilidade dos índices de um município nos diversos grupos trasformou-se a base dos índices, ou seja, o escore fatorial foi padronizado para se obter valores positivos dos escores originais e permitir a hierarquização dos municípios, de tal forma que os valores do índice estimado estejam situados entre zero e um (<strong>Santana, 2007</strong>).</p>
+<p>A fórmula é a seguinte:</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Análise Multivariada</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Was Written by (VALENTE e PUGA - 2024).</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

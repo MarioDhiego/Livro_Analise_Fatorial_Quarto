@@ -1,0 +1,663 @@
+```{=html}
+<style>
+body{text-align: justify}
+</style>
+```
+# Análise Fatorial (AF)
+
+## Aspectos Gerais
+
+Certos conceitos das ciências sociais e comportamentais não são bem definidos e existem muitas discussões sobre o real significado de termos como classe social, opinião pública, comportamento de risco ou personalidade extrovertida. Tais conceitos são freqüentemente chamados de variáveis latentes, desde que não são diretamente observáveis mesmo na população. Trata-se de construtos inventados pelos cientistas com o propósito de entender alguma área de interesse na pesquisa sendo realizada e para a qual não existe método operacional para fazer uma medida de forma direta.
+
+Embora as variáveis latentes não possam ser observadas diretamente, alguns de seus efeitos aparecerão nas variáveis manifestas, ou seja, aquelas que podem ser verificadas. Fica claro que medir diretamente um conceito como preconceito racial não é possível; no entanto, pode-se, por exemplo, observar quando uma pessoa aprova, ou não, alguma legislação do governo a respeito deste assunto. Pode-se, também, saber de que raça são os amigos desta pessoa e assim assumir que tais observações são de algum modo, indicadores de uma variável mais fundamental, o preconceito racial (Everitt, 1984). O método mais conhecido para investigar a dependência de um conjunto de variáveis manifestas em relação a um número menor de variáveis latentes é a chamada Análise de Fatores.
+
+A análise de fatores é uma das técnicas mais usuais do que se convencionou chamar de análise multivariada. Quando empregamos este tipo de análise estamos frequentemente interessados no comportamento de uma variável ou grupos de variáveis em covariação com outras (GREEN, 1976).\
+Em realidade a análise fatorial não se refere a uma única técnica estatística, mas a uma variedade de técnicas relacionadas para tornar os dados observados mais facilmente (e diretamente) interpretados. Isto é feito analisando-se os inter-relacionamentos entre as variáveis de tal modo que estas possam ser descritas convenientemente por um grupo de categorias básicas, em número menor que as variáveis originais, chamado fatores. Assim, o objetivo da análise fatorial é a parcimônia, procurando definir o relacionamento entre as variáveis de modo simples e usando um número de fatores menor que o número original de variáveis.
+
+Mais precisamente, um fator é um construto, uma entidade hipotética, uma variável não observada, que se supõe estarem subjacente a testes, escalas, itens e, de fato, medidas de qualquer espécie. Como construtos, os fatores apenas possuem realidade no fato de explicarem a variância de variáveis observadas, tal como se revelam pelas correlações entre as variáveis sendo analisadas, ou seja, a única realidade científica que os fatores possuem vem das correlações entre testes ou variáveis sendo pesquisadas. Se os resultados de indivíduos em itens ou testes caminham juntos, então, na medida em que existam correlações substanciais entre eles, está definido um fator.
+
+## Tipos de AF
+
+Técnicas analíticas fatoriais podem atingir seus objetivos ou de uma perspectiva exploratória ou de uma confirmatória. Existe um debate contínuo sobre o papel apropriado da análise fatorial, onde muitos pesquisadores consideram a AF apenas exploratória, útil na busca da estrutura em um conjunto de variáveis ou como um método de redução de dados. Sob essa perspectiva, as técnicas analíticas fatoriais consideram o que os dados oferecem e não estabelecem restrições a priori sobre o número de componentes a serem extraídos. Para muitas, talvez a maioria das aplicações, esse uso da AF é adequado. No entanto, em outras situações, o pesquisador tem preconcebido idéias sobre a real estrutura dos dados, baseado em suporte teórico ou em pesquisas anteriores. Ele pode desejar testar hipóteses envolvendo questões sobre, por exemplo, quais variáveis deveriam ser agrupadas em fator ou número exato de fatores. Nesses casos, o pesquisador espera que a análise fatorial desempenhe um papel confirmatório, ou seja, avalie o grau em que os dados satisfazem à estrutura esperada.
+
+### Análise Fatorial Exploratória (AFE)
+
+È comum um pesquisador analisar dados relativos a um fenômeno sem dispor de um quadro de referência teórica que o oriente completamente. Na maioria das vezes, essa situação decorre da falta de investimento na estruturação teórica do problema, da existência de lacunas na teoria ou da falta de ajuste de um modelo teórico proposto de antemão aos dados observados. De qualquer modo, sempre deve haver um mínimo de teoria indispensável à utilização da AF, mesmo em sua forma exploratória. No mínimo, o pesquisador deve supor que, por trás das variáveis observadas, há uma estrutura de fatores ortogonais ou oblíquos. Isso por si só não é pouco, pois exclui relações causais entre fatores, relações causais entre variáveis observadas e correlações dos fatores únicos com outros fatores ou com variáveis cuja especificidade não determina.\
+Assumida a existência de uma estrutura fatorial subjacente, o objetivo primário da Análise Fatorial Exploratória é determinar a menor quantidade possível de fatores que possam reproduzir a estrutura de correlações das variáveis observadas. Secundariamente, o propósito é ajustar soluções em que um pequeno número de variáveis tenha carga elevada em cada fator, pois isso facilita a interpretação da solução.
+
+### Análise Fatorial Confirmatória (AFC)
+
+A aplicação na análise fatorial confirmatória procura verificar se os dados observados se comportam de acordo com uma expectativa teórica. Se isso ocorrer, serve como evidência favorável à validade dos dados e reforça a teoria proposta, se não acontecer, alerta para existência de problemas com os dados, com a teoria ou com ambos. O requisito mínimo para execução da análise fatorial confirmatória é o pesquisador possuir de antemão uma hipótese acerca da quantidade de fatores comuns e apresentar uma expectativa teórica sobre qual fator deve carregar em qual variável.
+
+## Cargas Fatoriais
+
+As cargas fatoriais obtidas são, com efeito, reduções de dados muito mais complexos a tamanho manuseável para que o pesquisador possa interpretar melhor os resultados (KERLINGER, 1980).
+
+A expressão carga fatorial ocorre freqüentemente. Uma matriz de cargas fatoriais é um dos produtos finais da análise fatorial. Uma carga fatorial é um coeficiente, um número decimal, positivo ou negativo, geralmente menor do que 1, que expressa o quanto um teste ou variável observada está carregado ou saturado em um fator. Por outras palavras, quanto maior for a carga em cima de um fator, mais a variável se identifica com o que quer que seja o fator.
+
+Em síntese, a análise fatorial é essencialmente um método para determinar o número de fatores existentes em um conjunto de dados, para determinar quais testes ou variáveis pertencem a quais fatores, e em que extensão os testes ou variáveis pertencem a/ou estão saturados com o que quer que seja o fator.
+
+Assim, na AF uma situação, com inúmeras variáveis $(X_{1}, X_{2},..., X_{p})$, é explicada a partir de dimensões escondidas (fatores: $F_{1}, F_{2}, F_{3}$). A Figura 1 demonstra graficamente o esquema geral da análise de fatores.
+
+Conforme a Figura 1, quanto mais fortes for às correlações entre algumas variáveis dentre o grupo inicial, mais nítida é a visualização do fator gerado. Variáveis agrupadas num mesmo fator possuem, portanto alta correlação, enquanto que variáveis de fatores distintos possuem baixa correlação.
+
+## Histórico da Análise Fatorial
+
+Historicamente, a origem das técnicas de análise de fatores ou análise fatorial está ligada a estudos da área de psicologia. Sua criação data do início do século XX, quando Karl Pearson (1901) e Charles Spearman (Spearman, 1904) desenvolveram um método para a criação de um índice geral de inteligência (fator “g”) com base nos resultados em vários testes (escalas)
+
+que refletiriam essa aptidão. Tratava-se de um primeiro método de AF, adequado para a estimação de um único fator. No entanto, o termo Análise de Fatorial foi introduzido por Louis L. Thurstone em 1931 no seu artigo Multiple Factor Analysis.
+
+Thurstone (1931) identificou sete habilidades mentais primárias, em vez de um único fator g. Estudos mais recentes têm alterado a quantidade de fatores a serem considerados na análise de inteligência. No início, os métodos apresentavam uma característica mais empírica do que inferencial.
+
+. Em 1933 Pearson e Hotteling deram um formalismo melhor as idéias criadas por Spearman, e assim impulsionado com essas idéias, em 1940 com Lawley, surge um primeiro trabalho com um maior rigor matemático, o que fez com que se aumentasse à aceitação dessas técnicas no ramo da psicologia (LAWLEY, 1940).
+
+## Definições Clássicas
+
+A análise fatorial (AF), de modo geral, é uma técnica estatística multivariada que tem como princípio analisar a estrutura das inter-relações (correlações) entre um grande número de variáveis, ou seja, descrever a estrutura de dependência de um conjunto de variáveis através da criação de fatores, que são variáveis que, supostamente, medem aspectos comuns (Hair et al, 2005). Com o emprego dessa técnica, inicialmente podem-se identificar as dimensões isoladas da estrutura dos dados e então determinar o grau em que cada variável é explicada por cada dimensão ou fator.
+
+Segundo Mingoti (2005), a AF tem como objetivo principal descrever a variabilidade original do vetor aleatório X, em termos de um número menor M de variáveis aleatórias, chamadas de fatores comuns e que estão relacionadas com o vetor original X através de um modelo linear. Neste modelo, parte da variabilidade de X, é atribuída aos fatores comuns, sendo o restante da variabilidade de X atribuído ás variáveis que não foram incluídas no modelo, ou seja, o erro aleatório.
+
+Para Barroso e Artes (2003), a AF é uma técnica que descreve a estrutura de dependência de um conjunto de variáveis, através da criação de fatores, que são variáveis que, supostamente, medem aspectos comuns. Reis (1997) descreve a AF como um conjunto de técnicas cuja finalidade é representar ou descrever um número de variáveis iniciais a partir de um menor número de variáveis hipotéticas.
+
+Trata-se de uma técnica estatística multivariada que, a partir da estrutura de dependência existente entre as variáveis de interesse (em geral representada pelas correlações ou covariâncias entre essas variáveis), permite a criação de um conjunto menor de variáveis (variáveis latentes ou fatores), obtidas a partir das originais.
+
+De acordo com Malhotra (2001), análise fatorial “é um nome genérico que denota uma classe de processos essencialmente para redução e sumarização dos dados”.
+
+A análise fatorial é uma técnica de interdependência na qual todas as variáveis são simultaneamente consideradas, cada uma relacionada com todas as outras, empregando o conceito da variável estatística, a composição linear das variáveis.
+
+Ela difere das técnicas multivariadas de dependência (Regressão Múltipla, Análise Discriminante, Análise Multivariada de Variância ou Correlação Canônica), nas quais uma ou mais variáveis são explicitamente consideradas como as variáveis de critério ou dependentes e todas as outras são as variáveis preditoras ou independentes.
+
+Na análise fatorial, as variáveis estatísticas (fatores) são formadas para maximizar seu poder de explicação do conjunto inteiro de variáveis, e não para prever uma variável(eis) dependente(s).
+
+Na concepção de Pasquali (2003), a análise fatorial é uma técnica caucada sobre o pressuposto de que uma série de variáveis observadas, medidas, chamadas de variáveis empíricas ou observáveis pode ser explicada por um número menor de variáveis não observáveis, chamadas precisamente de variáveis fontes, mais conhecidas sob o nome de fatores.
+
+As chamadas variáveis fontes seriam a causa do fato de que as variáveis observáveis se relacionam entre si, isto é, são responsáveis pelas intercorrelações (covariâncias) entre as variáveis. Supõe-se que, se as variáveis empíricas se relacionam entre si, é porque elas têm uma causa comum que produz esta correlação entre elas.
+
+E a esta causa comum que se chama de fator e cuja descoberta é precisamente a tarefa da análise fatorial. Então, nestas afirmações já fizemos dois postulados que a análise fatorial assume (Pasquali, 2003):
+
+-   Um número menor de variáveis-fonte é suficiente para explicar uma série maior de variáveis observáveis, isto é, redução do posto da matriz das intercorrelações entre as variáveis observáveis
+
+-   Princípio da Causalidade: As variáveis-fonte são as causas da covariância entre as variáveis observáveis, ou seja, a análise fatorial é um modelo causal.
+
+Com base no que foi dito anteriormente, pode-se, assim, expressar o Modelo Estatístico da Análise Fatorial de várias formas.
+
+## Modelo Estatístico da Análise Fatorial
+
+O modelo estatístico usado na análise fatorial explica uma estrutura de correlação existente entre um conjunto de informações, diretamente observado por meio de combinação linear de variáveis, as quais não são diretamente observadas, denominados fatores comuns, acrescidas de componente residual. Um modelo de análise fatorial pode ser apresentado na seguinte forma conforme (DILLON e GOLDSTEIN, 1984).
+
+Sejam variáveis aleatórias, m fatores comuns; m\<p.
+
+$$ X = \sum_{j=1}^{m}\lambda_{ij}F{j} + \epsilon_{i}  $$
+
+Em que:
+
+$X_{i}$ = variáveis originais ou observadas;
+
+$Y_{i}$ = Cargas fatoriais da i-ésima variável no j-ésimo fator comum e refletem a importância do j-ésimo fator na composição da i-ésima variável.
+
+$F_{j}$ = variáveis não-observáveis ou variáveis latentes chamadas de fatores comuns;
+
+$Z_{i}$ = Fatores específicos que descrevem a variação residual especifica da i-ésima variável (resíduo que afeta somente $X_{i}$ ). É a parte da variável $X_{i}$ que não é explicada pelos fatores comuns
+
+Em notação matricial pode-se escrever o modelo como:
+
+$$ X = \Lambda F + \epsilon $$
+
+$$
+X =
+\left[
+\begin{array}{c}
+   X_{1}  \\
+   X_{2}  \\
+     ...  \\
+   X_{p}   \\
+\end{array}
+\right]
+$$
+
+$$
+F =
+\left[
+\begin{array}{c}
+   F_{1}  \\
+   F_{2}  \\
+     ...  \\
+   F_{m}   \\
+\end{array}
+\right]
+$$ $$
+\Lambda =
+\left[
+\begin{array}{cccc}
+   \lambda_{11} & \lambda_{12}  &  ...  &  \lambda_{1m} \\
+   \lambda_{21} & \lambda_{21}  &  ...  &  \lambda_{2m}  \\
+        ...     &   ...         &  ...  &   ...         \\
+   \lambda_{p1} & \lambda_{p2}  &  ...  &  \lambda_{pm}     \\
+\end{array}
+\right]
+$$
+
+$$
+X =
+\left[
+\begin{array}{c}
+   \epsilon_{1}  \\
+   \epsilon_{2}  \\
+     ...  \\
+   \epsilon_{p}   \\
+\end{array}
+\right]
+$$
+
+Outra forma de expressar o modelo de análise fatorial ortogonal. Seja X(px1) um vetor de variáveis observadas com vetor de médias µ, onde , matriz de
+
+$$ E(X) = \mu = (\mu_{1},\mu_{2},\mu_{3}...,\mu_{p}),$$ matriz de covariâncias ∑(pxp) e a matriz de correlação R(pxp). Um modelo de análise fatorial ortogonal é dado por: (*JOHNSON e WICHERN, 1992; BARROSO e ARTES, 2003; MINGOTI, 2005*).
+
+$$ X_{1} - \mu_{1} = l_{11} F_{1} + l_{12}F_{2} + ...+ l_1mF_m + \epsilon_1 $$ $$ X_{2} - \mu_{2} = l_{21} F_{1} + l_{12}F_{2} + ...+ l_2mF_m + \epsilon_2 $$ $$                                                                                                                                                                                                                                                                                                $$
+
+Matricialmente, o modelo (2) pode ser expresso por:
+
+$$ X - \mu = LF + \epsilon $$
+
+Neste modelo, o coeficiente F(mx1) é um vetor aleatório, na qual, F1,...,Fp são os fatores ou fatores comuns, também chamados de variáveis latentes, que descrevem os elementos da população em estudo e não são observáveis, ou seja, não podem ser medidos a priori. O elemento ε(px1) é um vetor de erros aleatórios, no qual ε1,....,εp são chamados de erros de medidas ou fatores específicos, que não é explicado pelos fatores comuns. O coeficiente L(pxm) é comumente chamado de cargas fatoriais.Uma interpretação possível para os componentes desses modelos pé que se pretende explicar o padrão de respostas de uma pessoa através do valor que ela tem nos contructos que atuam nos dados (fatores comuns), as cargas fatoriais indicam a importância que cada constructo tem na determinação do valor de cada variável e os fatores específicos dão conta da parte de cada variável que não é explicada pelos fatores comuns.A Figura 2 ilustra as relações existentes no modelo fatorial. Trata-se de um diagrama nos quais as variáveis observadas são representadas por retângulos, as variáveis latentes por círculos, os erros não têm uma representação gráfica e as setas partem de uma variável independente e atingem uma variável dependente. Alem disso, possíveis correlações devem ser indicadas por arcos.
+
+\$\$
+
+```{=tex}
+\left[
+\begin{array}{c}
+   \epsilon_{1}   \rightarrow  \\
+   \epsilon_{2}   \rightarrow  \\
+     ...  \\
+   \epsilon_{p}   \rightarrow  \\
+\end{array}
+\right]
+```
+\$\$ Figura 2. Diagrama Geral de Caminhos Possíveis em um Modelo de Análise Fatorial (*adaptado de Barroso e Artes, 2003*).
+
+As variáveis expressas em termos de vetores num sistema de coordenadas ortogonais, em que o comprimento representa a magnitude, agrupados conforme o relacionamento entre si. Por esses agrupamentos de vetores poderá passar eixos, denominados fatores (factor), que acusarão, pelo valor da projeção dos vetores sobre os eixos, a carga fatorial (factor loading) das variáveis sobre si. Esses fatores representam o número mínimo de causas de que condicionam um máximo de variabilidade existente. A comunalidade (Communallity), h2, isto é, a soma dos quadrados das cargas fatoriais das variáveis sobre cada fator indica a eficiência dos mesmos na explicação da variabilidade total.
+
+Os fatores são encontrados fazendo com que o primeiro eixo esteja em tal posição que a soma dos quadrados dos pesos fatoriais em relação a ele seja maximizada, o que equivale a colocá-lo paralelamente ao principal agrupamento de vetores. O segundo eixo é colocado ortogonalmente, de modo que também seja maximizada a soma de quadrados dos pesos fatoriais para este segundo eixo, e assim por diante quanto aos demais fatores.
+
+Uma das dificuldades resultantes deste procedimento é que o padrão de carregamento para cada componente pode não fornecer dimensões facilmente interpretáveis. Por exemplo, em uma matriz de coeficientes de correlação em que nenhum dos coeficientes é particularmente alto, o padrão de carregamento que pode ocorrer com respeito ao primeiro fator pode ser da mesma ordem relativa de magnitude que o existente em relação ao segundo fator, ao terceiro fator, etc. Haverá necessidade, então de uma rotação dos eixos fatoriais. A finalidade dessa rotação é maximizar colocando os eixos fatoriais numa única posição tal que cada fator possa ser interpretado pelos maiores carregamentos possíveis relacionados com o menor número de variáveis possível.
+
+No modelo usual de análise fatorial ortogonal, algumas suposições são necessárias para que se possa operacionalizar a estimação do modelo (1), fazendo-se as seguintes suposições sobre:
+
+$$ E F_{(m \times1)}= 0 $$ $$ Var (F_{(m \times1)})=1=I{(n_\times m )} =  \left[
+\begin{array}{cccc}
+   {1} & {2}  &  ...  &  {3} \\
+   {0} & {1}  &  ...  &  {0}  \\
+        ...     &   ...         &  ...  &   ...         \\
+   {0} & {0}  &  ...  &  {1}     \\
+\end{array}
+\right]                      $$
+
+$$  VAR(\epsilon_{(p \times p)}) = \psi = \left[
+\begin{array}{cccc}
+   {\psi1} & {0}  &  ...  &  {0} \\
+   {0} & {\psi2}  &  ...  &  {0}  \\
+        ...     &   ...         &  ...  &   ...         \\
+   {0} & {0}  &  ...  &  {\psi}     \\
+\end{array}
+\right]     
+$$
+
+Além disso, num modelo ortogonal, admitimos:
+
+$$  COV F_{(m \times1)} = I_{(m\times m)} $$ onde I é a matriz identidade de ordem m.
+
+$$  COV (\epsilon_{(m \times1)}) = \psi  $$
+
+$$ COV (F_{(m \times1)}  ; (\epsilon_{(m \times1)}) = 0 $$ A partir dessas suposições, é possível analisar o modelo proposto e interpretar suas componentes.
+
+2.6.1. Comunalidades
+
+A porção da variância que a variável contribui para o fator comum m é chamada de comunalidade. A porção da variância $$Var(X) =  \alpha^2 $$ devido ao fator específico, chama-se especificidade ou variância específica. Então tem-se que
+
+A variância de cada variável *Xi* é a soma das Comunalidades *hi²* com suas respectivas especificidades ou variância específica $$ \psi_i $$.Desta forma, tem-se as seguintes equações
+
+$$ \alpha_Ij = l^2 i1 + l^2i2 + ... + l^2 im + \psi_i $$ Denotando-se a i-ésima comunalidade por *hi²* tem-se $$ h^2 = l^2i1 + l^2i2 + ... + l^2 im = \sum_j^m l^2ij $$ COM *1,2,...,P* Então $$ \alpha_i^2 = \alpha_ij = h_i^2 + \psi_i ,i=1,2,...,p $$ A i-ésima comunalidade é a soma dos quadrados dos carregamentos da i-ésima variável com m fatores comuns.Portanto as comunalidades são as maiores parcelas do total da variância de uma variável Xi. A segunda parcela é proveniente da variância específica de cada variável, representada por $$ \psi $$. Quanto mais a comunalidade se aproximar de *1*, melhor será o modelo fatorial. Autores consideram boa comunalidade valores acima de *0,70*.
+
+## Principais Etapas para Aplicação da Análise Fatorial
+
+A análise fatorial possui, basicamente, oito etapas para a sua elaboração que são:
+
+-   Formular o Problema: Formulação do problema da análise fatorial e identificação das variáveis originais que serão investigadas para resumo ou redução dos dados.
+
+-   • Cálculo da Matriz de Correlação: Cálculo da matriz de correlação das variáveis em estudo para a verificação do grau de associação entre as variáveis. Para testar a conveniência do modelo fatorial, pode-se aplicar o teste de esfericidade de Bartlett para testar a hipótese nula de que as variáveis não sejam correlacionadas na população, ou seja, que a matriz de correlação da população é uma matriz de identidade. Outra estatística utilizada pode ser a medida de adequacidade da amostra de Kaiser-Meyer-Olkin *(KMO)*, um índice usado para avaliar a medida de adequacidade da amostra da análise fatorial. Valores altos *(entre 0,5 e 1,0)* indicam que a análise fatorial é apropriada. Assim, a partir de uma análise da matriz de correlação das diversas variáveis, é possível obter indicadores sintéticos, ou, utilizando o termo técnico, escores fatoriais, que consistem numa combinação linear das variáveis originais que as sintetizam e explicam *(KAISER E RICE, 1974, SPSS, 1999)*
+
+-   Método de Análise: Escolha do método de análise fatorial mais apropriado para extração dos fatores a serem utilizados existem vários dentre os mais usuais são: Método de Componentes Principais, Método de Análise Fatorial Comum e Método de Máxima Verossimilhança.
+
+-   Extrair Fatores Iniciais: Extração dos fatores (*cargas fatoriais*) mais significativos que representarão os dados, através do método mais adequado. Podem ser: a priori, com base em autovalores, com base em um gráfico de Declive (*Scree Plot*), na percentagem da variância. Aqui se sabe o quão bem o modelo representa os dados (*HAIR et. al, 2005*).
+
+-   Rotação dos Fatores: Aplicar algum tipo de rotação nos fatores para facilitar o entendimento dos mesmos. Podem ser: ortogonal, quando os eixos são mantidos em ângulo reto e rotação oblíqua, quando os eixos não são mantidos em ângulo reto. (Geralmente, utiliza-se rotação para transformar a matriz de fatores em uma matriz mais simples e mais fácil de interpretar. O método de rotação mais comumente usado é o processo varimax que objetiva diminuir o número de variáveis com cargas fatoriais altas em um só fator, resultando em fatores ortogonais. Se há fatores altamente correlacionados na população pesquisada, pode-se usar a rotação oblíqua).
+
+-   Interpretação de Fatores: É facilitada através da identificação das variáveis que apresentam grandes cargas sobre o mesmo fator. O fator pode então ser interpretado em termos das variáveis que o pesam fortemente
+
+-   Cálculo dos Escores Fatoriais: Escores fatoriai são estimados para cada observação nos fatores derivados. A redução de dados pode ser conseguida calculando escores para cada dimensão latente e substituindo as variáveis originais pelos mesmos. A análise fatorial pode auxiliar na seleção de um subconjunto representativo de variáveis ou mesmo da criação de novas variáveis como substitutas das variáveis originais, e ainda mantendo seu caráter original.
+
+-   Determinação do Ajuste do Modelo: As diferenças entre as correlações observadas *(matriz de entrada*) e as correlações reproduzidas (*estimada com base na matriz de fatores*) são chamadas de resíduos e se há muitos resíduos grandes, o modelo fatorial não dá um bom ajuste aos dados, e deve ser reconsiderado.
+
+2.8. Métodos de Estimação dos Fatores
+
+Há na literatura vários métodos para a estimação de fatores tais como: Method Unweighted Least Squares, Method Generalized Least Squares, Method Maximun Likelihood, Method Principal Axis Factoring, Method Principal Components, Method Alpha Factoring, Method Image Factoring.
+
+Sendo o Method Unweighted Least Squares um dos métodos de extração que minimiza a soma das diferenças quadráticas entre a matriz de dados e a matriz de correlação reproduzida, ignorando as diagonais. O Method Generalized Least Squares idem ao anterior, mas neste caso a correlação é pesada pelo inverso das suas singularidades, assim como as variáveis com altas singularidades são tomadas com peso menor que aquelas com menor singularidades.
+
+Com relação ao Method Maximun Likelihood, este cria parâmetros estimados como sendo mais prováveis para produzir a matriz de correlação observada, se a amostra pode ser caracterizada por uma distribuição normal multivariada. As correlações são pesadas pelo inverso das singularidades das variáveis, pelo emprego de um algoritmo *iterativo*. O Method Principal Axis Factoring parte da matriz de correlação original com os coeficientes de correlações múltiplos colocados na diagonal como estimativas iniciais das comunalidades. Estes fatores obtidos são usados para estimar as novas comunalidades, que são recolocadas no lugar das velhas na diagonal. As Iterações continuam até a ocorrerem mudanças nas comunalidades partindo da primeira até a seguinte, buscando satisfazer o critério de convergência de extração. O Método das Componentes Principais é usada para obter uma combinação linear não-correlata das combinações das variáveis mensuradas, obtendo-se as soluções dos fatores, ela pode ser usada quando a matriz de correlação é singular. Method Alpha Factoring é um método de extração que considera as variáveis na análise como uma amostra do universo potencial de variáveis. Ele maximiza a confiabilidade ou fidedignidade alfa (de Cronbach) dos fatores. Já o Method Image Factoring é um método fatorial de extração desenvolvido por Guttman e está baseado na Teoria de Imagens. A parte comum da variância, chamada de imagem parcial, é definida como uma regressão linear sobre as restantes, preferivelmente que a função dos fatores hipotéticos.
+
+Assim abordam-se mais detalhadamente os métodos de estimação dos fatores mais popularmente usados: Análise de Fatores via Método das Componentes Principais e Método de Máxima Verossimilhança
+
+2.8.1. Método das Componentes Principais
+
+Uma Análise das Componentes Principais diz respeito a explicar a estrutura da variância e da covariância através de poucas combinações lineares das variáveis originais. Seu objetivo geral consiste tanto em reduzir os dados como interpretá-los adequadamente. Uma análise das componentes principais freqüentemente revela relações que não eram previamente consideradas e assim permitem interpretações que não iriam, de outro modo, aparecer *veja, BARROSO; ARTES, 2003*.
+
+2.8.2. Método da Máxima Verossimilhança
+
+Um método bastante conhecido para a obtenção dos fatores é o da máxima verossimilhança, onde, em sua versão usual, supõe-se que as variáveis envolvidas sigam uma distribuição normal. Esse método, em geral, não é indicado para os casos onde a suposição de normalidade das variáveis envolvidas não esteja satisfeita *ver JOHNSON;WICHERN, 1998*.
+
+Admita \$ X \~ N\_{p} (\mu,\sum) , com \sum = LL + \psi. \$ Um problema com esse modelo é que ele não é identificável, uma vez que há infinitas matrizes L que o satisfazem. Isso exige a introdução de restrições de identificabilidade. Uma restrição conveniente do ponto de vista computacional é, por exemplo,$L \psi L$ ser uma matriz diagonal.
+
+Considere uma amostra $X_1 ,...,X_n$ de vetores independentes de X . As estimativas de máxima verossimilhança de $\mu,L, \psi$ são obtidas a partir da maximização da função de verossimilhança abaixo.
+
+$$ L (\mu,\sum) = \frac{1}{2\pi}^np \frac{np}{2}\ \frac{1}\sum ^\frac{n}{2}_\ exp  \left( -\frac{1}{2}  \sum_{i=1}^{n}(X_{i}- \mu \sum^{-1}) (X_i - \mu) \right ) $$
+
+Não há uma solução explícita para os estimadores, o que exige o uso de métodos numéricos para a maximização da função acima. O estudo de tais métodos pode ser visto em *ANDERSON, 1984*.
+
+A vantagem de se trabalhar com estimadores de máxima verossimilhança é que a inferência estatística nos garante sua consistência e normalidade assintótica, o que permite a construção de intervalos de confiança e testes de hipóteses, para grandes amostras.
+
+Um teste utilizado para avaliação da escolha do número de fatores é o Teste de Razão de Verossimilhança que considera as seguintes hipóteses.
+
+$$ H_0 : \sum = LL + \psi $$
+
+$$ H_1 : \sum \neq LL + \psi $$
+
+Sejam $$ S_n = \sum_{i=1}^{n} (X_i - X) (X - X)  \sum^{1} = LL + \psi  $$ onde,onde e são os estimadores de máxima verossimilhança de L e ,$\psi$ respectivamente. A estatística do teste é dada por:
+
+$$ TRV = -2ln  \left( \frac{\sum^{1}}{S_n} \right )   $$ Sob a hipótese nula, TRV segue uma distribuição qui-quadrado com
+
+2.9. Métodos de Rotação dos Fatores
+
+Uma ferramenta importante na interpretação de fatores é a rotação fatorial. O termo rotação significa exatamente o que sugere. Especificamente, os eixos de referência dos fatores são rotacionados em torno da origem até que alguma outra posição seja alcançada. As soluções de fatores não-rotacionadas extraem fatores na ordem de sua importância. O primeiro fator tende a ser um fator geral com quase toda a variável com carga significativa, e explica a quantia maior de variância. O segundo fator e os seguintes são então baseados na quantia residual de variância. Cada fator explica porções sucessivamente menores de variância. O efeito final de rotacionar a matriz fatorial é redistribuir a variância dos primeiros fatores para os últimos com o objetivo de atingir um padrão fatorial mais simples e teoricamente mais significativo.
+
+O caso mais simples de rotação é uma rotação ortogonal, na qual os eixos são mantidos a 90º. Também é possível rotacionar os eixos sem manter o ângulo de 90 graus entre os eixos de referência. Procedimento de rotação se chama rotação oblíqua.
+
+2.9.1. Rotação Ortogonal
+
+Para rotação ortogonal dos fatores existem vários tipos na literatura como: Varimax (mais usado) é um método de rotação ortogonal que minimiza o número de variáveis que cada agrupamento terá. Ele simplifica a interpretação dos fatores. Quartimax é um método que minimiza o número de fatores necessários para explicar cada variável. Ele simplifica a interpretação das variáveis obtidas. O Equamax é também um método que busca uma combinação dos outros (varimax e quartimax). O número de variáveis obtido terá carga fatorial maior e o número de fatores será minimizado.
+
+2.9.1.1. Rotação Varimax
+
+A rotação varimax é uma das rotações ortogonais mais utilizadas em análise fatorial. Intuitivamente, ela busca soluções nas quais se busca maximizar as correlações de cada variável com apenas um fator.
+
+$$\propto_i i= 1 ,...., p, j = i,...,m $$ as cargas fatoriais rotacionadas. Defina $\beta_ij = \frac{\alpha_ij}{C_i^2} = \beta_j = \sum_{i=1}^{p} \frac{\beta_ij}{P}$
+
+Note que $\beta{i_j}$ pode ser interpretada como a proporção da comunalidade de $X_i$ que é explicada pelo fator j. A matriz de rotação será escolhida de sorte a maximizar.
+
+$$ V = \sum_{j=1}^{P}V_i , V_j = \sum_{i=1}^{P} \frac{\beta_ij- \beta_j}{P}^2 $$ O método varimax é um processo em que os eixos de referência dos fatores são rotacionados em torno da origem até que alguma outra posição seja alcançada. Intuitivamente, ela busca soluções nas quais se busca maximizar as correlações de cada variável com apenas um fator. O objetivo é redistribuir a variância dos primeiros fatores para os demais e atingir um padrão fatorial mais simples e teoricamente mais significativo **REIS, 2001; HAIR, 2005**
+
+*Varimax* é um tipo de rotação ortogonal na qual mantém os fatores perpendiculares entre si, ou seja, sem correlação entre eles. È o tipo de rotação mais utilizado e que tem como característica o fato de min
+imizar a ocorrência de uma variável possuir altas cargas fatoriais para diferentes fatores, permitindo que uma variável seja facilmente identificada como único fator **CORRAR et al, 2007**
+
+Tabela 1. Comparação entre cargas fatoriais rotacionados e não-rotacionados.
+
+
+
+```{=latex}
+\begin{table}[htb]
+\caption{sumario}
+\label{cargas}
+\begin{center}
+\begin{tabular}{C|C|C|C|C}
+\hline
+variaveis & I   & II  &  III  & IV   \\
+V1        & 0,5 & 0,8 &  0,03 & 0,94 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+```
+
+No primeiro fator não-rotacionado, todas as variáveis tem carga alta. No segundo fator as variáveis 1 e 2 e são muito altas na direção positiva. A variável 5 é moderadamente alta na direção negativa e as variáveis 3 e 4 tem cargas consideravelmente menores na direção negativa.
+
+A partir da inspeção visual da Figura 1, verifica-se que há dois agrupamentos de variáveis, sendo que as variáveis 1 e 2 estão juntas, assim como as variáveis 3,4 e 5. no entanto, tal padrão de variáveis não é tão óbvio a partir das cargas fatoriais não-rotacionadas. Rotacionando os eixos originais no sentido horário, como indica na Figura 1, obteu-se um padrão de cargas fatoriais completamente diferentes. Observou-se que, rotacionando os fatores, os eixos são mantidos a *90 graus*. Esse procedimento significa que os fatores são matematicamente independentes e que a rotação foi ortogonal.
+
+
+2.9.2.	Rotação Oblíqua
+
+
+
+Para rotação obliqua dos fatores cita-se: Direct Oblimin um método diferentemente dos três anteriores é oblíquo (não ortogonal). Quando delta é igual a 0 (default), a solução é mais oblíqua. Tomando-se delta mais negativo, os fatores ficaram menos oblíquos. Ignorando-se o default delta de 0, deve-se usar um número menor ou igual a 0,8. O Promax também é um método oblíquo de rotação, o qual possibilita  os fatores correlatos. Ele pode ser calculado mais rapidamente que a rotação direct oblimin. Assim ele é usado para grandes grupos de dados. Kappa na maioria das vezes é tomado com o valor 4. Existem outros métodos de rotação oblíqua na literatura como: Covarimin, Oblimax e Quartimin, mas que não são tão usados como os anteriores mensionados.
+
+Os mesmos princípios gerais de rotações ortogonais são aplicáveis a rotações oblíquas. O método de rotação oblíqua é mais flexível, pois os eixos fatoriais não precisam ser ortogonais. Além disso, é mais realista porque as dimensões inerentes que são teoricamente importantes não são supostas sem correlações entre si. Na Figura 2, os dois métodos rotacionais são comparados. Nota-se que a rotação fatorial oblíqua representa o agrupamento de variáveis com maior precisão. Essa precisão é resultado do fato de que cada eixo fatorial rotacionado agora está mais próximo do respectivo grupo de variáveis. Além disso, a solução oblíqua fornece informações sobre o grau em que os fatores realmente estão correlacionados um com o outro.
+
+
+2.10.	Métodos de Escolha do Número de Fatores 
+
+A escolha do número de fatores é uma das tarefas mais importante de uma análise fatorial. Quando o pesquisador opta por um número muito reduzido, ele pode não identificar estruturas importantes existentes nos dados e, por outro lado, se o número é excessivo, ele pode vir a ter problemas de interpretação dos fatores. Existem, na literatura, vários critérios que auxiliam na determinação do número de fatores que, invariavelmente, quando empregados em um mesmo conjunto de dados, conduzem a resultados diferentes (**HAIR, 1998**).
+
+Os métodos de escolha, que se passou a descrever, têm caráter apenas indicativo, não existindo uma hierarquia entre eles. 
+
+
+•	Técnica de Raiz Latente (**Critério de Kaiser**) = Esta técnica parte do princípio de que qualquer fator individual deve explicar a variância de pelo menos uma variável para que seja mantido para interpretação. Cada variável contribui com um valor 1 do autovalor total. Com efeito, apenas os fatores que têm raízes latentes ou autovalores maiores que 1 são considerados significantes e os demais fatores com autovalores menores do que 1 são considerados insignificantes e descartados (**KAISER, 1958**).
+
+
+•	Critério da Porcentagem da variância explicada = O número é determinado de modo que o conjunto de fatores comuns explique uma porcentagem pré-definida da variabilidade global, por exemplo, desejamos explicar pelo menos 70% da variabilidade total dos dados. 
+
+
+
+•	Critério Scree Test = È comum que a diferença de explicação entre os primeiros fatores de uma AF seja grande e que tenda a diminuir com o aumento no número de fatores. Por este critério, o número ótimo de fatores é obtido quando a variação da explicação entre fatores consecutivos passa a ser pequena. Com isso, de acordo com a Figura 5, pode-se verificar melhor o Critério Scree Test junto com o Critério da Raiz Latente ou de Kaiser.
+
+
+•	Métodos Inferenciais = Outros métodos foram desenvolvidos para os casos em que as variáveis originais seguem uma distribuição normal. Esses métodos consistem no desenvolvimento de testes estatísticos que se alicerçam na suposição de normalidade e, dessa forma, não são, em princípio, adequados à análise da maioria das escalas psicológicas. Apesar disso, esses métodos podem ser utilizados com um fim puramente indicativo, sendo que a significância obtida nessas situações não corresponde à realidade. Dentre esses testes destacamos o de Bartlett (**Johnson e Wichern, 1992**) que verifica a adequabilidade do modelo de AF estimado (**pelo método da máxima verossimilhança**) para representar a estrutura de dependência dos dados.
+
+
+Um teste de hipótese formulado para auxiliar na decisão do número de fatores m que são suficientes para o modelo de análise fatorial, pode ser feito quando os vetores X e F tiverem distribuições normais multivariada. Este teste é válido somente para amostras de tamanhos grandes. Considere as seguintes hipóteses.
+
+$H_0$ : m Fatores e Suficiente 
+
+$H_1$ : É necessario um número maior que m Fatores
+
+Então, a estatística de teste (**BARTLETT, 1954**) é dada por:
+
+$$ T = [ N - 1 ] (\frac{2_p + 4m + 5}{6}) LN (\frac{|L_p\times m|L_(m \times p) + \psi_(p \times p|)}{|(R_p \times p)|})$$
+Onde $L(P\times m)$ e $\psi$ São as estimativas de máxima verossimilhança das matrizes $L(P\times m)$ e $\psi$ Sob a hipótese nula, a estatística T tem aproximadamente uma distribuição quiquadrado com $\frac{1}{2} [(p - m^2)- p - m]$ graus de Liberdade.Desse modo a hipotése nula será rejeirada quando o valor observado de T for maior ou igual que o ponto critico da distribuição qui-quadrado para o nivel de significância utilizada para o teste.
+
+
+2.11.	Tamanho de Amostra para Aplicação da Análise de Fatores 
+
+Uma AF envolve a estimação de um grande número de parâmetros e, para que isso seja feito com um mínimo de qualidade, é necessário um tamanho amostral relativamente grande em comparação ao número de variáveis envolvidas. Há, na literatura estatística, uma série de sugestões para a escolha desse tamanho amostral. Em geral, essas opções baseiam-se na experiência pessoal dos diversos autores que, em alguns casos, sugerem um tamanho amostral da ordem de 20 vezes o número de variáveis envolvidas (**ver Hair et al., 1995**). **Reis (1997**) e **Hair et al. (1995**) sugerem que o número de observações deva ser de no mínimo 5 vezes o número de variáveis, além disso, indicam que preferencialmente a análise seja feita com pelo menos 100 observações. **Hair et al. (2005**) enfatiza que ela não deve ser utilizada em amostras inferiores a 50 observações.
+
+
+2.12.	Escores Fatoriais 
+
+Quando o objetivo final da análise de dados é a descrição e o entendimento da estrutura de correlação das variáveis, o que vimos sobre análise fatorial pode levar às respostas desejadas. Outras vezes, entretanto, os objetivos da pesquisa podem envolver análises posteriores aplicadas aos fatores identificados aos dados. È suposto que cada variável na amostra tenha um valor para cada um dos Fatores Comuns, que, como já foi dito, não são diretamente observáveis. Esses valores são os chamados Escores Fatoriais que posteriormente podem ser utilizados em outras análises conjuntamente. (**BARROSO; ARTES, 2003**).
+
+
+
+2.13.	 Métodos de Estimação dos Escores Fatoriais
+
+Existem na literatura vários métodos de estimação dos escores fatoriais para cada elemento amostral, tais como: **o Método dos Mínimos Quadrados Ponderados, Método de Bartlett, Método de Anderson Rubin e o Método de Regressão.** 
+
+Sendo o Método de Regressão usado para estimar os escores dos coeficientes dos fatores. Os escores gerados têm média 0 e variância igual ao quadrado da correlação múltipla entre os escores dos fatores estimados e os valores verdadeiros dos fatores. Os escores devem ser igualados com os fatores ortogonais. 
+
+Em relação ao Método de Bartlett usado também para estimação dos escores dos coeficientes dos fatores. Os escores produzidos têm média de zero. A soma dos quadrados de um fator é feita sobre a extensão das variáveis minimizadas. Já o Método de Anderson Rubin é similar ao de Bartlett a diferença está em garantir a ortogonalidade dos fatores estimados. Os escores gerados têm uma média de 0, desvio padrão de 1,0 e são não correlatos.
+
+
+2.13.1.	Método de Regressão
+
+
+Para a determinação dos escores fatoriais, estimou-se através de algum Método de Extração a matriz de escores fatoriais após algum Método de Rotação da estrutura fatorial inicial, usando especificamente o **Método de Regressão**. Para cada fator  , o i-ésimo escore fatorial extraído é definido por  , expresso da seguinte forma (**DILLON; GOLDSTEIN, 1984**):
+
+
+$$F_ij = b_1x_i1 + b_2X_i2 + ... + b_pX_ip$$
+Em que: 
+
+$ b_i$ são os coeficientes de regressão estimados para os n escores fatoriais comuns;
+$x_ij$ são as n observações das p variáveis observadas.
+
+A variável   não é observável, mas pode ser estimada por meio das técnicas de análise fatorial, utilizando-se a matriz de observações do vetor x de variáveis observáveis. Em notação matricial, a equação 2, torna-se:
+
+$$ F(n_,q) = X(n_,p) b(p_q)$$  
+**Na equação 11**, **F** é a matriz da regressão estimada a partir dos **n** escores fatoriais  e que pode ser afetada tanto pela magnitude quanto pelas unidades de medida das variáveis **x**. Para contornar este tipo de problema, substitui-se a variável **x** pela variável padronizada **w**, dada pela razão entre o desvio em torno da média e o desvio-padrão de **x**, como a seguir:
+
+
+$$ W_ij = \frac{X_i - X}{S_x}$$ 
+
+$$F(n_,p) = W(n_,p) \beta_(n,p)$$
+**Na equação 12**, a matriz de pesos $\beta$ com **q** colunas e **p** coeficientes de Regressão padronizados, substitui **b** , dado que as variáveis estão padronizadas em ambos os lados da equação .Pré-multiplicando ambos os lados da equação 12 pelo valor $$(\frac{1}{n})w$$ em que n é o número de observações e *w* é a matriz transposta de w, obtém-se 
+
+$$ \frac{1}{n} W_{(p,n)} F_{(n,q)} = \frac{1}{n}W_{(n,p)} \beta_{(p,p)} = R_{(p,p)} \beta_{(p,q)}                                     $$
+A matriz $\frac{1}{n}$ w' w se constitui na matriz de variaveis intercorrelacionadas ou matriz de correlação entre as observações da **matriz x**, designada por **R**. A matriz $$\frac{1}{n}$$ w' F' representa a correlação entre os escores fatoriais e os próprios fatores, denotada por  . Reescrevendo a equação 13, tem-se que: $$ \wedge_{(p,q) = R_{(p,p)} \beta{(p,q)}}$$ Se a matriz **R** for não-singular, pode-se pré-multiplicar ambos os lados da equação 14 pela inversa de **R**, obtendo-se: $$ \beta = R^{-1}\wedge$$ Substituindo o vetor $\beta$ na equação 12, obtém-se o escore fatorial associado a cada observação, como a seguir: $$ F_ {(n,p)}W_{(n,p)}R^{-1}(p_,p)\wedge{(p,q)}$$ 
+
+
+2.14.	Padronização dos Escores Fatoriais
+
+
+
+Ao realizar a análise sobre um conjunto de dados com variáveis com variâncias de magnitudes diferentes (provenientes de diversos setores), podemos estar introduzindo dificuldades na explicitação dessa dependência. Nos casos que existe uma grande diferença entre as variâncias das variáveis originais, sugere-se que a análise seja realizada sobre as variáveis padronizadas (**Johnson, 1998**). Para facilitar a comparabilidade dos índices de um município nos diversos grupos trasformou-se a base dos índices, ou seja, o escore fatorial foi padronizado para se obter valores positivos dos escores originais e permitir a hierarquização dos municípios, de tal forma que os valores do índice estimado estejam situados entre zero e um (**Santana, 2007**). 
+
+A fórmula é a seguinte:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
